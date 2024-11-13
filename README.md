@@ -10,10 +10,10 @@
 # Main Web Page
 
 <p> a. App is linked on a domain.  </p>
-<img src="./src/assets/main.png" alt="Açıklama" width="200" height="400">
+<img src="./src/assets/main.png" alt="Açıklama" width="400" height="400">
 
 <p> b. You can submit a form (Typeform Clone).  </p>
-<img src="./src/assets/form.png" alt="Açıklama" width="200" height="400">
+<img src="./src/assets/form.png" alt="Açıklama" width="400" height="400">
 
 <hr/>
 
@@ -22,20 +22,20 @@
 ## 1. Sign up
 
 <p> a. Fill the required information to sign up or sign in.   </p>
-<img src="./src/assets/dbMain.png" alt="Açıklama" width="200" height="400">
+<img src="./src/assets/dbMain.png" alt="Açıklama" width="400" height="400">
 
 <br>
 <p> b. To sign up, confirm your email by entering the code sent to your email before the time expires.  </p>
-<img src="./src/assets/readmeEmail.png" alt="Açıklama" width="200" height="400">
+<img src="./src/assets/readmeEmail.png" alt="Açıklama" width="400" height="400">
 
 <br>
 <p> c. After logging in, you can view all the data submitted through the forms.
   </p>
-<img src="./src/assets/readmeimg1.png" alt="Açıklama" width="200" height="400">
+<img src="./src/assets/readmeimg1.png" alt="Açıklama" width="400" height="400">
 
 <p> d. You can also see a graphical representation of how many forms have been submitted day by day.
   </p>
-<img src="./src/assets/statsReadme.png" alt="Açıklama" width="200" height="400">
+<img src="./src/assets/statsReadme.png" alt="Açıklama" width="400" height="400">
 
 <hr/>
 <div style="text-align: center;">
