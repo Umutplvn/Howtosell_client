@@ -31,7 +31,7 @@ const Footer = () => {
       }}
     >
         <Typography sx={{ fontSize: "0.9rem", fontFamily: "Inter", maxWidth: "400px", textAlign: "center", color:"#717171" }}>
-        We help business owners and sales professionals double their sales without pushy tactics
+        We help business Owners & Sales professionals double their sales without pushy tactics
       </Typography>
      
       <Box sx={{mt:"0.5rem", mb:"0.5rem", display: "flex", flexDirection: "row", gap:'1rem' }}>

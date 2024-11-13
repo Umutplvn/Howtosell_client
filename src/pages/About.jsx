@@ -11,12 +11,40 @@ import desktopss from "../assets/desktopabout.png";
 import salesnumbers from "../assets/Salesnumbers.jpg";
 import softwaresales from "../assets/SoftwareSales.jpg";
 import salesVideo from "../assets/SalesCoachingAbout.mp4";
+import ppAbout from "../assets/pp.png"
+import { useEffect } from "react";
 
 const About = () => {
   const navigate = useNavigate();
-  const isMobile = useMediaQuery("(max-width:600px)");
+const imgBoxStyle={display:"flex", width:"100%", justifyContent:"center", pt: "1rem", pb: "1rem" }
+  
+useEffect(() => {
+  const videoElement = document.getElementById("videoElement");
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
 
-  return (
+  const createPoster = () => {
+    videoElement.currentTime = 5; 
+  };
+  const captureFrame = () => {
+    canvas.width = videoElement.videoWidth;
+    canvas.height = videoElement.videoHeight;
+    context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+    const dataURL = canvas.toDataURL();
+    videoElement.setAttribute("poster", dataURL);
+  };
+
+  videoElement.addEventListener("loadeddata", createPoster);
+  videoElement.addEventListener("seeked", captureFrame);
+
+  return () => {
+    videoElement.removeEventListener("loadeddata", createPoster);
+    videoElement.removeEventListener("seeked", captureFrame);
+  };
+}, []);
+
+
+return (
     <Box sx={{ minHeight: "100vh", position: "relative" }}>
       {/* Header */}
       <Header />
@@ -28,21 +56,27 @@ const About = () => {
           width: "100%",
           height: "100%",
           justifyContent: "center",
+          color:"white"
         }}
       >
         <Box
           sx={{
-            width: "85vw",
+            width: "95vw",
+            p:"2rem",
             maxWidth: "50rem",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            mt: "2rem",
+            background: "linear-gradient(to top, #010101, #282C30)",
+            borderRadius:"1rem",
             mb: { xs: "4rem" },
           }}
         >
           <Box>
+            <Box sx={{width:"100%", display:"flex", justifyContent:"center", mb:"2rem"}}>
+              <img src={ppAbout} alt="Me" style={{width:"8rem"}}/>
+            </Box>
             <Box sx={{ display: "flex", flexWrap: "wrap" }}>
               <Typography
                 sx={{
@@ -81,19 +115,20 @@ const About = () => {
                 want to make money, it pays to shake hands & knock on doors.
               </Typography>
             </Box>
-            <Box sx={{ pt: "1rem", pb: "1rem" }}>
+            <Box sx={imgBoxStyle}>
               <figure style={{ maxWidth: "21rem" }}>
                 <img
                   src={salesperformance}
                   alt="Sales performance graph"
-                  style={{ maxWidth: "100%" }}
+                  style={{ maxWidth: "100%", borderRadius:"0.5rem" }}
                 />
                 <figcaption
                   style={{
                     fontFamily: "Inter",
-                    fontSize: "0.8rem"
+                    fontSize: "0.8rem",
+                     textAlign:"center"
                   }}
-                > Childhood Babar, determined to get paid!
+                > Ready to punch his way to success. Young Babar knew the value of hard work 💪💰
                 </figcaption>
               </figure>
             </Box>
@@ -127,12 +162,23 @@ const About = () => {
               understanding client needs.
             </Typography>
           </Box>
-          <Box sx={{ pt: "1rem", pb: "1rem" }}>
-            <img
-              src={salesteam}
-              alt="Sales performance graph"
-              style={{ maxWidth: "100%" }}
-            />
+          <Box sx={imgBoxStyle}>
+          <figure style={{ maxWidth: "21rem" }}>
+                <img
+                  src={salesteam}
+                  alt="Sales performance graph"
+                  style={{ maxWidth: "100%", borderRadius:"0.5rem" }}
+                />
+                <figcaption
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "0.8rem",
+                     textAlign:"center"
+                  }}
+                > My University Fitness Classes
+                </figcaption>
+              </figure>
+          
           </Box>
 
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -162,12 +208,25 @@ const About = () => {
               Dubai. This was where I truly paid my dues in sales.
             </Typography>
           </Box>
-          <Box sx={{ pt: "1rem", pb: "1rem", width: "100%" }}>
-            <img
-              src={realestate}
-              alt="Sales performance graph"
-              style={{ maxWidth: "21rem" }}
-            />
+
+          
+          <Box sx={imgBoxStyle}>
+          <figure style={{ maxWidth: "21rem" }}>
+                <img
+                  src={realestate}
+                  alt="Sales performance graph"
+                  style={{ maxWidth: "100%", borderRadius:"0.5rem" }}
+                />
+                <figcaption
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "0.8rem",
+                     textAlign:"center"
+                  }}
+                > Real Estate in Dubai
+                </figcaption>
+              </figure>
+       
           </Box>
 
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -202,12 +261,23 @@ const About = () => {
               perseverance.
             </Typography>
           </Box>
-          <Box sx={{ pt: "1rem", pb: "1rem", width: "100%" }}>
-            <img
-              src={isMobile ? mobiless : desktopss}
-              alt="Sales performance graph"
-              style={{ maxWidth: "100%" }}
-            />
+          <Box sx={imgBoxStyle}>
+          <figure style={{ maxWidth: "21rem" }}>
+                <img
+                  src={mobiless}
+                  alt="Sales performance graph"
+                  style={{ maxWidth: "100%", borderRadius:"0.5rem" }}
+                />
+                <figcaption
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "0.8rem",
+                     textAlign:"center"
+                  }}
+                >  Recognition from one of my first mentors in Sales. I saw he sold the most on our office floor, so I strategically moved my seat to be next to him in the office. One of my best moves :)
+                </figcaption>
+              </figure>
+           
           </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Typography
@@ -243,12 +313,24 @@ const About = () => {
               all my customers.
             </Typography>
           </Box>
-          <Box sx={{ pt: "1rem", pb: "1rem", width: "100%" }}>
-            <img
-              src={salesnumbers}
-              alt="Sales performance graph"
-              style={{ width: "21rem" }}
-            />
+          <Box sx={imgBoxStyle}>
+          <figure style={{ width: "100%", display:"flex", justifyContent:"center", flexDirection:"column", alignItems:"center" }}>
+                <img
+                  src={salesnumbers}
+                  alt="Sales performance graph"
+                  style={{ width: "21rem", borderRadius:"0.5rem" }}
+                />
+                <figcaption
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "0.8rem",
+                     textAlign:"center",
+                     maxWidth:"21rem"
+                  }}
+                > Numbers don't lie. I was obsessed with the CRM stats. I'd wake up in the middle of the night and check I was still on top of it. No joke 🙉
+                </figcaption>
+              </figure>
+       
           </Box>
 
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -279,12 +361,24 @@ const About = () => {
               team to over 100 employees.
             </Typography>
           </Box>
-          <Box sx={{ pt: "1rem", pb: "1rem", width: "100%" }}>
-            <img
-              src={softwaresales}
-              alt="Sales performance graph"
-              style={{ width: "21rem" }}
-            />
+          <Box sx={imgBoxStyle}>
+          <figure style={{ maxWidth: "21rem" }}>
+                <img
+                  src={softwaresales}
+                  alt="Sales performance graph"
+                  style={{ maxWidth: "100%", borderRadius:"0.5rem" }}
+                />
+                <figcaption
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "0.8rem",
+                     textAlign:"center"
+                  }}
+                >  My days as Head of Sales, Dev Centre House. 
+                </figcaption>
+              </figure>
+
+            
           </Box>
 
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -318,12 +412,29 @@ const About = () => {
           </Box>
 
           <Box sx={{ width: "100%" }}>
-            <Box sx={{ pt: "1rem", pb: "1rem", width: "21rem" }}>
-              <video width="100%" controls>
-                <source src={salesVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </Box>
+    <Box sx={imgBoxStyle}>
+      <figure>
+        <video
+          id="videoElement"
+          style={{ maxWidth: "21rem", borderRadius: "0.5rem" }}
+          width="100%"
+          controls
+        >
+          <source src={salesVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption
+          style={{
+            fontFamily: "Inter",
+            fontSize: "0.8rem",
+            textAlign: "center",
+            maxWidth: "21rem",
+          }}
+        >
+          Transition into content creation, one of my most viral videos in the weight loss niche.
+        </figcaption>
+      </figure>
+    </Box>
           </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Typography

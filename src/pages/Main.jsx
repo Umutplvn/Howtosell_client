@@ -105,7 +105,7 @@ const Main = () => {
                 fontWeight: "300",
                 textAlign: "center",
                 mt: "2rem",
-                maxWidth: "600px",
+                maxWidth: "650px",
               }}
             >
               Drive sales growth with strategies that elevate your team, delight
@@ -672,7 +672,7 @@ const Main = () => {
               }}
             >
               Business Owner or a Sales Leader
-            </Typography>{" "}
+            </Typography>
             aiming to double your sales and elevate your salespeople’s skills to
             the next level, the next move is yours.{" "}
             <Typography
