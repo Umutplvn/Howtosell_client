@@ -37,7 +37,7 @@
 
 
 <hr/>
-<div style="text-align: center;">
+<div style="text-align: center; width:100%">
   <p>Feel free to contact me for future projects:</p>
   <p>
     <a href="https://www.linkedin.com/in/umutpehlivan/" target="_blank">
