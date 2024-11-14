@@ -1,4 +1,4 @@
-import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -75,7 +75,6 @@ const About = () => {
             alignItems: "center",
             background: "linear-gradient(to top, #010101, #282C30)",
             borderRadius: "1rem",
-            // mb: { xs: "4rem" },
           }}
         >
           <Box>
@@ -87,7 +86,9 @@ const About = () => {
                 mb: "2rem",
               }}
             >
-              <img src={ppAbout} alt="Me" style={{ width: "8rem" }} />
+              <Box sx={{width:{xs:"8rem", sm:"10rem"}}}>
+              <img src={ppAbout} alt="Me" style={{ width: "100%" }} />
+              </Box>
             </Box>
             <Box sx={{ display: "flex", flexWrap: "wrap" }}>
               <Typography
@@ -180,7 +181,7 @@ const About = () => {
             </Typography>
           </Box>
           <Box sx={imgBoxStyle}>
-            <figure style={{ maxWidth: "21rem" }}>
+            <figure style={{ maxWidth: "30rem" }}>
               <img
                 src={salesteam}
                 alt="Sales performance graph"
@@ -280,7 +281,7 @@ const About = () => {
             </Typography>
           </Box>
           <Box sx={imgBoxStyle}>
-            <figure style={{ maxWidth: "21rem" }}>
+            <figure style={{ maxWidth: "30rem" }}>
               <img
                 src={mobiless}
                 alt="Sales performance graph"
@@ -296,10 +297,11 @@ const About = () => {
                 {" "}
                 Recognition from one of my first mentors in Sales. I saw he sold
                 the most on our office floor, so I strategically moved my seat
-                to be next to him in the office. One of my best moves :)
-              </figcaption>
+                to be next to him in the office. One of my best moves :)              </figcaption>
             </figure>
           </Box>
+
+       
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Typography
               sx={{
