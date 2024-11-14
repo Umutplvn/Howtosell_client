@@ -11,7 +11,7 @@ import salesnumbers from "../assets/Salesnumbers.jpg";
 import softwaresales from "../assets/SoftwareSales.jpg";
 import salesVideo from "../assets/SalesCoachingAbout.mp4";
 import ppAbout from "../assets/pp.png";
-import { useEffect } from "react";
+import poster from "../assets/posterVideo.png";
 
 const About = () => {
   const navigate = useNavigate();
@@ -22,31 +22,6 @@ const About = () => {
     pt: "2rem",
     pb: "2rem",
   };
-
-  useEffect(() => {
-    const videoElement = document.getElementById("videoElement");
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-
-    const createPoster = () => {
-      videoElement.currentTime = 0.1;
-    };
-    const captureFrame = () => {
-      canvas.width = videoElement.videoWidth;
-      canvas.height = videoElement.videoHeight;
-      context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-      const dataURL = canvas.toDataURL();
-      videoElement.setAttribute("poster", dataURL);
-    };
-
-    videoElement.addEventListener("loadeddata", createPoster);
-    videoElement.addEventListener("seeked", captureFrame);
-
-    return () => {
-      videoElement.removeEventListener("loadeddata", createPoster);
-      videoElement.removeEventListener("seeked", captureFrame);
-    };
-  }, []);
 
   return (
     <Box sx={{ minHeight: "100vh", position: "relative" }}>
@@ -61,7 +36,7 @@ const About = () => {
           height: "100%",
           justifyContent: "center",
           color: "white",
-          pt:"2rem"
+          pt: "2rem",
         }}
       >
         <Box
@@ -86,8 +61,8 @@ const About = () => {
                 mb: "2rem",
               }}
             >
-              <Box sx={{width:{xs:"8rem", sm:"10rem"}}}>
-              <img src={ppAbout} alt="Me" style={{ width: "100%" }} />
+              <Box sx={{ width: { xs: "8rem", sm: "10rem" } }}>
+                <img src={ppAbout} alt="Me" style={{ width: "100%" }} />
               </Box>
             </Box>
             <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -233,7 +208,11 @@ const About = () => {
               <img
                 src={realestate}
                 alt="Sales performance graph"
-                style={{ maxWidth: "100%", width:"21rem", borderRadius: "0.5rem" }}
+                style={{
+                  maxWidth: "100%",
+                  width: "21rem",
+                  borderRadius: "0.5rem",
+                }}
               />
               <figcaption
                 style={{
@@ -242,11 +221,10 @@ const About = () => {
                   textAlign: "center",
                 }}
               >
-                              Real Estate in Dubai
-            </figcaption>
+                Real Estate in Dubai
+              </figcaption>
             </figure>
           </Box>
-   
 
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Typography
@@ -297,11 +275,11 @@ const About = () => {
                 {" "}
                 Recognition from one of my first mentors in Sales. I saw he sold
                 the most on our office floor, so I strategically moved my seat
-                to be next to him in the office. One of my best moves :)              </figcaption>
+                to be next to him in the office. One of my best moves :){" "}
+              </figcaption>
             </figure>
           </Box>
 
-       
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Typography
               sx={{
@@ -336,13 +314,16 @@ const About = () => {
             </Typography>
           </Box>
 
-
           <Box sx={imgBoxStyle}>
             <figure style={{ maxWidth: "21rem" }}>
               <img
                 src={salesnumbers}
                 alt="Sales performance graph"
-                style={{ maxWidth: "100%", width:"21rem", borderRadius: "0.5rem" }}
+                style={{
+                  maxWidth: "100%",
+                  width: "21rem",
+                  borderRadius: "0.5rem",
+                }}
               />
               <figcaption
                 style={{
@@ -354,11 +335,10 @@ const About = () => {
                 {" "}
                 Numbers don't lie. I was obsessed with the CRM stats. I'd wake
                 up in the middle of the night and check I was still on top of
-                it. No joke 🙉              </figcaption>
+                it. No joke 🙉{" "}
+              </figcaption>
             </figure>
           </Box>
-
-     
 
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Typography
@@ -476,10 +456,9 @@ const About = () => {
             <Box sx={imgBoxStyle}>
               <figure>
                 <video
-                  id="videoElement"
-                  style={{ maxWidth: "21rem", borderRadius: "0.5rem" }}
-                  width="100%"
                   controls
+                  poster={poster}
+                  style={{ maxWidth: "21rem", borderRadius: "0.5rem" }}
                 >
                   <source src={salesVideo} type="video/mp4" />
                   Your browser does not support the video tag.
