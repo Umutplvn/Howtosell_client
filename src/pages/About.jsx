@@ -19,8 +19,8 @@ const About = () => {
     display: "flex",
     width: "100%",
     justifyContent: "center",
-    pt: "1rem",
-    pb: "1rem",
+    pt: "2rem",
+    pb: "2rem",
   };
 
   useEffect(() => {
@@ -181,7 +181,7 @@ const About = () => {
             </Typography>
           </Box>
           <Box sx={imgBoxStyle}>
-            <figure style={{ maxWidth: "30rem" }}>
+            <figure style={{ maxWidth: "40rem" }}>
               <img
                 src={salesteam}
                 alt="Sales performance graph"
@@ -281,7 +281,7 @@ const About = () => {
             </Typography>
           </Box>
           <Box sx={imgBoxStyle}>
-            <figure style={{ maxWidth: "30rem" }}>
+            <figure style={{ maxWidth: "40rem" }}>
               <img
                 src={mobiless}
                 alt="Sales performance graph"
