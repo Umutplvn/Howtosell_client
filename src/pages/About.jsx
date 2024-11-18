@@ -334,7 +334,7 @@ const About = () => {
               >
                 {" "}
                 Numbers don't lie. I was obsessed with the CRM stats. I'd wake
-                up in the middle of the night and check I was still on top of
+                up in the middle of the night and check <br /> I was still on top of
                 it. No joke 🙉{" "}
               </figcaption>
             </figure>
