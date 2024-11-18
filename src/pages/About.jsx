@@ -120,7 +120,7 @@ const About = () => {
                   }}
                 >
                   {" "}
-                  Ready to punch his way to success. Young Babar knew the value
+                  Ready to punch his way to success. <br /> Young Babar knew the value
                   of hard work 💪💰
                 </figcaption>
               </figure>
@@ -471,7 +471,7 @@ const About = () => {
                     maxWidth: "21rem",
                   }}
                 >
-                  Transition into content creation, one of my most viral videos
+                  Transition into content creation, one of my most <br /> viral videos
                   in the weight loss niche.
                 </figcaption>
               </figure>
@@ -500,7 +500,7 @@ const About = () => {
             >
               Despite the success, I realized I wasn't following my true passion
               and dream <strong>to help people win in sales!</strong>
-              The same gift that helped me become a top seller in real estate
+              {' '}The same gift that helped me become a top seller in real estate
               and fitness sales and help scale a software company from scratch
               was what I truly wanted to share with others.
             </Typography>
