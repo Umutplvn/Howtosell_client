@@ -611,7 +611,7 @@ const Main = () => {
               >
                 Support:
               </Typography>
-             {' '} Get 24/7 support via the community or email/chat/calls with your
+             {' '} Get 24/7 support via email/chat/calls with your
               success coach.{" "}
             </Typography>
           </Box>
