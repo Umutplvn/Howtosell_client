@@ -193,7 +193,7 @@ const FormQuestions = () => {
       setLoading(true);
 
       const response = await axios.post(
-        "https://howtosell-server-f0ot53xlk-umutplvns-projects.vercel.app/create",
+        "https://howtosell-server-c4u0ez4b0-umutplvns-projects.vercel.app/create",
         user
     );
     console.log(response);
