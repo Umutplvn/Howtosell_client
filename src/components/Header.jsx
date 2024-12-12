@@ -7,6 +7,8 @@ const Header = () => {
     const navigate = useNavigate();
 
   return (
+    <header>
+
     <Box
     sx={{
       display: "flex",
@@ -20,7 +22,7 @@ const Header = () => {
     }}
   >
     <Box  onClick={() => navigate("/")} sx={{ width: { xs: "12rem", sm: "15rem" }, ml: "-1rem", cursor:"pointer" }}>
-      <img src={logo} alt="" style={{ width: "100%" }} />
+      <img src={logo} alt="How To Sell" style={{ width: "100%" }} />
     </Box>
     <Typography
       onClick={() => navigate("/about")}
@@ -31,11 +33,13 @@ const Header = () => {
         fontStyle: "normal",
         fontSize: { xs: "1.2rem", sm: "1.5rem" },
         cursor: "pointer",
+        color: "inherit",
       }}
     >
       About
     </Typography>
   </Box>
+    </header>
   )
 }
 
