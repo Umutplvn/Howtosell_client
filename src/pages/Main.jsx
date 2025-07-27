@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import underline1 from "../assets/underline1.svg";
+import underlineBlack from "../assets/underlineBlack.svg";
 import dotBg from "../assets/dot-pattern.svg";
 import Vector from "../assets/Vector.svg";
 import Header from "../components/Header";
@@ -60,7 +61,11 @@ const Main = () => {
                   }}
                 >
                   We help{" "}
-                  <Typography
+
+
+
+
+                  {/* <Typography
                     component={"strong"}
                     sx={{
                       fontFamily: "Inter",
@@ -73,8 +78,46 @@ const Main = () => {
                     }}
                   >
                     Entrepreneurs & Salespeople
-                 
-                  </Typography>{" "}
+                  </Typography>{" "} */}
+
+                      <Box
+      sx={{
+        position: "relative",
+        display: "inline-block",
+        textAlign: "center",
+        margin: "auto",
+      }}
+    >
+      <Typography
+        component="strong"
+        sx={{
+          fontFamily: "Inter",
+          fontOpticalSizing: "auto",
+          fontStyle: "normal",
+          fontSize: { xs: "1.5rem", sm: "1.8rem" },
+          fontWeight: "600",
+          padding: "0.2rem",
+          display: "inline-block",
+        }}
+      >
+        Entrepreneurs & Salespeople
+      </Typography>
+
+      <Box
+        component="img"
+        src={underlineBlack}
+        alt="underline"
+        sx={{
+          position: "absolute",
+          bottom: "3px", 
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "100%", 
+          pointerEvents: "none", 
+        
+        }}
+      />
+    </Box>
                 
 
                   <Typography
@@ -93,6 +136,7 @@ const Main = () => {
                   >
                     Double Their Sales
                   </Typography>{" "}
+
                   <Typography
                     component={"strong"}
                     sx={{
@@ -131,7 +175,7 @@ const Main = () => {
                     }}
                   >
                     Drive sales growth with strategies that elevate your team,
-                    delight your clients, and make your life easier—no pressure,
+                    delight your clients, and make your life easier. No pressure,
                     pure results.
                   </Typography>
                 </Box>
