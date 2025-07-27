@@ -515,8 +515,7 @@ const Main = () => {
                     color: "#717171",
                   }}
                 >
-                  We help you to double your sales and give you everything you
-                  need to achieve this transformation:
+                 I integrate directly into your sales process, find the leaks, and fix them fast. <br /> <br /> Here’s what working together looks like: 
                 </Typography>
 
                 <Box sx={{ mt: "1rem" }}>
@@ -540,10 +539,9 @@ const Main = () => {
                         display: "inline-block",
                       }}
                     >
-                      Custom plan:
+                      Deep Sales Audit: 
                     </Typography>{" "}
-                    1-on-1 onboarding session with Babar to map out your plan
-                    for the year.
+We dissect your entire sales process. Scripts, CRM, inbound and outbound to uncover what’s broken or missing.
                   </Typography>
 
                   <Typography
@@ -566,10 +564,9 @@ const Main = () => {
                         display: "inline-block",
                       }}
                     >
-                      Tools:
+                     Fix the Leaks:
                     </Typography>{" "}
-                    Get all the tools required to build, test, maintain, and
-                    optimize all sales systems.
+                    From missed follow-ups to weak discovery calls, we plug every hole that’s costing you revenue.
                   </Typography>
 
                   <Typography
@@ -592,9 +589,9 @@ const Main = () => {
                         display: "inline-block",
                       }}
                     >
-                      Coaching:
+                      Embedded Coaching:
                     </Typography>{" "}
-                    Weekly call on Zoom where you can ask Babar questions live.
+Weekly calls aren’t just theory. We work side-by-side, reviewing live calls, rewriting messaging, and optimizing your team's performance.
                   </Typography>
 
                   <Typography
@@ -617,10 +614,9 @@ const Main = () => {
                         display: "inline-block",
                       }}
                     >
-                      Accountability:
+                      Custom Sales Systems:
                     </Typography>{" "}
-                    Quarterly check-in calls from your success coach to hold you
-                    accountable.{" "}
+                    We install plug-and-play systems for lead handling, follow-up, objection handling, and closing—built for your exact business.
                   </Typography>
                   <Typography
                     sx={{
@@ -642,10 +638,9 @@ const Main = () => {
                         display: "inline-block",
                       }}
                     >
-                      Support:
+                      Always-On Support:
                     </Typography>{" "}
-                    Get 24/7 support via email/chat/calls with your success
-                    coach.{" "}
+                    You’re not left hanging. You’ll have direct access to me and your success coach between calls for quick answers, reviews, and help.
                   </Typography>
                 </Box>
               </Box>
@@ -709,9 +704,9 @@ const Main = () => {
                         display: "inline-block",
                       }}
                     >
-                      Business Owner or a Sales Leader
+                      Business Owner or a Sales Leader  
                     </Typography>
-                    aiming to double your sales and elevate your salespeople’s
+                    {' '}aiming to double your sales and elevate your salespeople’s
                     skills to the next level, the next move is yours.{" "}
                     <Typography
                       component="strong"
