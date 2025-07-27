@@ -97,8 +97,8 @@ const About = () => {
                 }}
               >
                 My journey in sales started unknowingly at an early age. I grew
-                up in Ireland, and as a kid, I’d go door-to-door. I had little
-                hustles throughout all my early years — I just wanted money for
+                up in Ireland, and as a kid, I’d go door to door. I had little
+                hustles throughout all my early years. I just wanted money for
                 extra things my parents didn’t want to buy me. Naturally, I’m
                 actually quite introverted, but those early experiences taught
                 me that if you want to make money, it pays to shake hands &
@@ -199,7 +199,7 @@ const About = () => {
               After I completed my university studies, I moved to Dubai for my
               first proper sales job in real estate. Feeling great in my new
               suit, I packed a suitcase, kissed my mum goodbye, and took a
-              one-way flight to Dubai. This was where I truly paid my dues in
+              one way flight to Dubai. This was where I truly paid my dues in
               sales.
             </Typography>
           </Box>
@@ -247,7 +247,7 @@ const About = () => {
                 width: "100%",
               }}
             >
-              In Dubai's real estate market, competition was intense—there were
+              In Dubai's real estate market, competition was intense. There were
               a million agents and no base salary, only commission. I arrived
               with enough savings for just two or three months. It was sink or
               swim. <br /> <br />I chose to swim. <br /> <br />
@@ -307,7 +307,7 @@ const About = () => {
               But time with our loved ones is limited.
               <br />
               <br /> Back in Ireland, I began selling fitness memberships and
-              quickly became the top seller at a high-end fitness club. Coming
+              quickly became the top seller at a high end fitness club. Coming
               from the shark tank of Dubai, it felt like jumping into the kiddie
               pool. <br /> <br />I ran laps around the other sellers by building
               genuine relationships with all my customers.
@@ -395,7 +395,7 @@ const About = () => {
                 width: "100%",
               }}
             >
-              The rest is history. I started working with him—Twana—as hire
+              The rest is history. I started working with him, Twana, as hire
               number three in his software company. Initially, it was just me,
               him, and Marco in a modest office. Together, we scaled the company
               from a single client to over 20 enterprise clients and grew the
