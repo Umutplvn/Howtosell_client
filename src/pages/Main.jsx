@@ -68,13 +68,15 @@ const Main = () => {
                       fontStyle: "normal",
                       fontSize: { xs: "1.5rem", sm: "1.8rem" },
                       fontWeight: "600",
-                      backgroundColor: "#BAD7FB",
                       textAlign: "center",
+                      padding: "0.2rem ",
                     }}
                   >
                     Entrepreneurs & Salespeople
+                 
                   </Typography>{" "}
-                  Double Their Sales
+                
+
                   <Typography
                     component={"strong"}
                     sx={{
@@ -83,6 +85,22 @@ const Main = () => {
                       fontStyle: "normal",
                       fontSize: { xs: "1.5rem", sm: "1.8rem" },
                       fontWeight: "600",
+                      textAlign: "center",
+                      padding: "0.2rem ",
+                      backgroundColor:"rgb(255, 242, 74)",
+                      padding:"0 0.2rem"
+                    }}
+                  >
+                    Double Their Sales
+                  </Typography>{" "}
+                  <Typography
+                    component={"strong"}
+                    sx={{
+                      fontFamily: "Inter",
+                      fontOpticalSizing: "auto",
+                      fontStyle: "normal",
+                      fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                      fontWeight: "800",
                       textAlign: "center",
                       fontStyle: "italic",
                     }}
@@ -515,7 +533,9 @@ const Main = () => {
                     color: "#717171",
                   }}
                 >
-                 I integrate directly into your sales process, find the leaks, and fix them fast. <br /> <br /> Here’s what working together looks like: 
+                  I integrate directly into your sales process, find the leaks,
+                  and fix them fast. <br /> <br /> Here’s what working together
+                  looks like:
                 </Typography>
 
                 <Box sx={{ mt: "1rem" }}>
@@ -539,10 +559,12 @@ const Main = () => {
                         display: "inline-block",
                       }}
                     >
-                      Deep Sales Audit: 
+                      Deep Sales Audit:
                     </Typography>{" "}
-We dissect your entire sales process. Scripts, CRM, inbound and outbound to uncover what’s broken or missing.
+                    We dissect your entire sales process. Scripts, CRM, inbound
+                    and outbound to uncover what’s broken or missing.
                   </Typography>
+                  <br />
 
                   <Typography
                     sx={{
@@ -564,11 +586,12 @@ We dissect your entire sales process. Scripts, CRM, inbound and outbound to unco
                         display: "inline-block",
                       }}
                     >
-                     Fix the Leaks:
+                      Fix the Leaks:
                     </Typography>{" "}
-                    From missed follow-ups to weak discovery calls, we plug every hole that’s costing you revenue.
+                    From missed follow-ups to weak discovery calls, we plug
+                    every hole that’s costing you revenue.
                   </Typography>
-
+                  <br />
                   <Typography
                     sx={{
                       fontFamily: "Sen",
@@ -591,8 +614,11 @@ We dissect your entire sales process. Scripts, CRM, inbound and outbound to unco
                     >
                       Embedded Coaching:
                     </Typography>{" "}
-Weekly calls aren’t just theory. We work side-by-side, reviewing live calls, rewriting messaging, and optimizing your team's performance.
+                    Weekly calls aren’t just theory. We work side-by-side,
+                    reviewing live calls, rewriting messaging, and optimizing
+                    your team's performance.
                   </Typography>
+                  <br />
 
                   <Typography
                     sx={{
@@ -616,7 +642,9 @@ Weekly calls aren’t just theory. We work side-by-side, reviewing live calls, r
                     >
                       Custom Sales Systems:
                     </Typography>{" "}
-                    We install plug-and-play systems for lead handling, follow-up, objection handling, and closing—built for your exact business.
+                    We install plug-and-play systems for lead handling,
+                    follow-up, objection handling, and closing, built for your
+                    exact business.
                   </Typography>
                   <Typography
                     sx={{
@@ -628,6 +656,7 @@ Weekly calls aren’t just theory. We work side-by-side, reviewing live calls, r
                       mb: "0.5rem",
                     }}
                   >
+                    <br />
                     <Typography
                       component="strong"
                       sx={{
@@ -640,7 +669,8 @@ Weekly calls aren’t just theory. We work side-by-side, reviewing live calls, r
                     >
                       Always-On Support:
                     </Typography>{" "}
-                    You’re not left hanging. You’ll have direct access to me and your success coach between calls for quick answers, reviews, and help.
+                    You’re not left hanging. You’ll have direct access to me
+                    between calls for quick answers, reviews, and help.
                   </Typography>
                 </Box>
               </Box>
@@ -704,9 +734,9 @@ Weekly calls aren’t just theory. We work side-by-side, reviewing live calls, r
                         display: "inline-block",
                       }}
                     >
-                      Business Owner or a Sales Leader  
-                    </Typography>
-                    {' '}aiming to double your sales and elevate your salespeople’s
+                      Business Owner or a Sales Leader
+                    </Typography>{" "}
+                    aiming to double your sales and elevate your salespeople’s
                     skills to the next level, the next move is yours.{" "}
                     <Typography
                       component="strong"

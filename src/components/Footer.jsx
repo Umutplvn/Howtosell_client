@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { CiYoutube } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
@@ -35,6 +36,35 @@ const Footer = () => {
       </Typography>
      
       <Box sx={{mt:"0.5rem", mb:"0.5rem", display: "flex", flexDirection: "row", gap:'1rem' }}>
+     <Box
+        onMouseEnter={() => handleMouseEnter('linkedin')}
+        onMouseLeave={handleMouseLeave}
+
+        sx={{
+          width:"2.5rem",
+          height:"2.5rem",
+          p:"0.5rem",
+          boxShadow:"rgba(0, 0, 0, 0.26) 0px 1px 1px",
+          borderRadius:"50%",
+          display:"flex",
+          justifyContent:"center",
+          alignItems:"center",
+
+        }}>
+        <a
+          href="https://www.linkedin.com/in/askary/"
+          target="_blank"
+          rel="noopener noreferrer"        >
+          <FaLinkedin
+            style={{
+              fontSize: "1.5rem",
+              color:hoveredIcon === 'linkedin' ? "black" :"#404040",
+              transition: "font-size 0.3s",
+            }}
+          />
+        </a>
+        </Box>
+
         <Box
         onMouseEnter={() => handleMouseEnter('youtube')}
         onMouseLeave={handleMouseLeave}
