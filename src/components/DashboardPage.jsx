@@ -92,19 +92,20 @@ const Members = () => {
   );
 
   const cellStyle = {
-    fontSize: "0.8rem",
+    fontSize: "0.75rem",
     whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   };
 
-const stickyStyle = {
-  position: "sticky",
-  top: 0,
-  backgroundColor: "#f8f8f8",
-  zIndex: 1,
-  whiteSpace: "normal",       // ❗ Satıra sığmazsa alt satıra geçsin
-  wordBreak: "break-word",    // ❗ Uzun kelimeler de bölünebilsin
-  padding: "0.5rem",
-};
+  const stickyStyle = {
+    position: "sticky",
+    top: 0,
+    backgroundColor: "#f8f8f8",
+    whiteSpace: "normal",
+    wordBreak: "break-word",
+    zIndex: 1,
+  };
 
   const handleExport = () => {
     const data = filterUsers?.map((user) => ({
@@ -193,11 +194,38 @@ const stickyStyle = {
               <TableRow sx={cellStyle}>
                 <TableCell sx={stickyStyle}></TableCell>
 
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>First Name</Typography>
+                <TableCell align="left"
+                  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                     minWidth: "90px",
+                    maxWidth: "90px",
+                    width: "90px",
+                  }}>
+                  <Typography sx={{ ...cellStyle, width: "90px" }}>
+                    First Name
+                  </Typography>
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>Last Name</Typography>
+
+                <TableCell align="left"
+                  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                     minWidth: "90px",
+                    maxWidth: "90px",
+                    width: "90px",
+                  }}>
+                  <Typography sx={{ ...cellStyle, width: "70px" }}>
+                    Last Name
+                  </Typography>
                 </TableCell>
 
                 <TableCell align="left" sx={stickyStyle}>
@@ -213,64 +241,162 @@ const stickyStyle = {
                   <Typography sx={cellStyle}>Company Website</Typography>
                 </TableCell>
 
-                <TableCell align="left" sx={{ position: "sticky",
-    top: 0,
-    backgroundColor: "#f8f8f8",
-    width: "120px",
-    maxWidth: "120px",
-    minWidth: "120px",
-    whiteSpace: "normal",
-    wordBreak: "break-word",
-    padding: "0.5rem",
-    zIndex: 1
-                }}>
-                  <Typography sx={{ fontSize: "0.75rem",
-      lineHeight: 1.2,
-      whiteSpace: "normal"}}>
+                <TableCell
+                  align="left"
+                  sx={{
+                    position: "sticky",
+                    top: 0,
+                    backgroundColor: "#f8f8f8",
+                    minWidth: "120px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+                  >
                     How Large Is Your Sales Team?
                   </Typography>
                 </TableCell>
 
-                
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
+                <TableCell
+                  align="left"
+                  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                     minWidth: "150px",
+                    maxWidth: "150px",
+                    width: "150px",
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+                  >
                     What outcome would make sales training a massive win for
                     you?{" "}
                   </Typography>
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
+
+                <TableCell   align="left"
+                  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    minWidth: "150px",
+                    maxWidth: "150px",
+                    width: "150px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}>
+                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+>
                     What Are the Biggest Challenges You or Your Sales Team Is
                     Facing?{" "}
                   </Typography>
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                    If you were confident that our sales training would help
-                    your team achieve these goals, what investment range would
+
+
+                <TableCell align="left"  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    minWidth: "150px",
+                    maxWidth: "150px",
+                    width: "150px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}>
+
+                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}>
+                 What investment range would
                     you feel comfortable with?
                   </Typography>
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
+
+
+                <TableCell align="left"  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    minWidth: "150px",
+                    maxWidth: "150px",
+                    width: "150px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}>
+                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}>
                     When Are You Looking to Implement Sales Training?
                   </Typography>
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                    Preferred Mode of Contact{" "}
+
+                <TableCell align="left"  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    minWidth: "90px",
+                    maxWidth: "90px",
+                    width: "90px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}>
+                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"90px" }}>
+                    Preferred Mode of Contact
                   </Typography>
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>Created At </Typography>
+
+                <TableCell align="left"  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    minWidth: "80px",
+                    maxWidth: "80px",
+                    width: "80px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}>
+
+                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"80px" }}>Created At </Typography>
+
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={{ width: "80px", height: "3rem" }}>
+
+                <TableCell align="left"  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    minWidth: "80px",
+                    maxWidth: "80px",
+                    width: "80px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}>
+                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"80px" }}>
                     Contacted
                   </Typography>
                 </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={{ width: "100px", height: "3rem" }}>
+             
+                <TableCell align="left"  sx={{
+                    position: "sticky",
+                    backgroundColor: "#f8f8f8",
+                    top: 0,
+                    minWidth: "80px",
+                    maxWidth: "80px",
+                    width: "80px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}>
+                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"80px" }}>
                     Contacted By
                   </Typography>
                 </TableCell>
@@ -289,8 +415,8 @@ const stickyStyle = {
                       sx={{
                         display: "flex",
                         gap: "0.3rem",
-                        justifyContent: "center",
                         alignItems: "center",
+                        width:"2.7rem"
                       }}
                     >
                       <Typography
@@ -332,8 +458,91 @@ const stickyStyle = {
                     </Box>
                   </TableCell>
 
+                  <TableCell  sx={{ ...cellStyle, maxWidth: 100 }}
+                    align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        width: "90px",
+                      }}
+                    >
+                      {formatName(row.name)}
+                    </Typography>
+                  </TableCell>
+
+                  <TableCell sx={{ ...cellStyle, maxWidth:90 }}
+                    align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "80px",
+                      }}
+                    >
+                      {formatName(row.lastName)}
+                    </Typography>
+                  </TableCell>
+                  <TableCell sx={{ ...cellStyle, maxWidth: 150 }}
+                    align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "120px",
+                      }}
+                    >
+                      {row.email}
+                    </Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "110px",
+                      }}
+                    >
+                      {row.phone}
+                    </Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "100px",
+                      }}
+                    >
+                      {row.companyName}
+                    </Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "100px",
+                      }}
+                    >
+                      {row.companyWebsite}
+                    </Typography>
+                  </TableCell>
+
                   <TableCell
-             
+                    sx={{ ...cellStyle, maxWidth: 260 }}
                     align="left"
                   >
                     <Typography
@@ -342,105 +551,77 @@ const stickyStyle = {
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
-                        width: "90px",
+                        width: "100px",
                       }}
                     >
-                      {formatName(row.name)}
+                      {row.teamMembers}
                     </Typography>
                   </TableCell>
 
                   <TableCell
-               
                     align="left"
                   >
-                    <Typography   sx={{
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "120px",
+                      }}
+                    >
+                      {row.goal}
+                    </Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography  sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "150px",
+                      }}>{row.challenges}</Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography  sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "120px",
+                      }}>{row.directInvest}</Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "120px",
+                      }}>{row.when}</Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "80px",
+                      }}>{row.contactMode}</Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography sx={{
                         ...cellStyle,
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
                         width: "90px",
                       }}>
-                      {formatName(row.lastName)}
-                    </Typography>
-
-
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography sx={{
-                        ...cellStyle,
-                        overflow: "hidden",
-                        whiteSpace: "nowrap",
-                        textOverflow: "ellipsis",
-                        width: "120px",
-                      }}>{row.email}</Typography>
-
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography sx={{
-                        ...cellStyle,
-                        overflow: "hidden",
-                        whiteSpace: "nowrap",
-                        textOverflow: "ellipsis",
-                        width: "120px",
-                      }}>{row.phone}</Typography>
-                  </TableCell>
-
-
-
-                  <TableCell align="left">
-                    <Typography sx={{
-                        ...cellStyle,
-                        overflow: "hidden",
-                        whiteSpace: "nowrap",
-                        textOverflow: "ellipsis",
-                        width: "100px",
-                      }}>{row.companyName}</Typography>
-                  </TableCell>
-
-
-
-                  <TableCell align="left">
-                    <Typography sx={{
-                        ...cellStyle,
-                        overflow: "hidden",
-                        whiteSpace: "nowrap",
-                        textOverflow: "ellipsis",
-                        width: "100px",
-                      }}>{row.companyWebsite}</Typography>
-                  </TableCell>
-
-
-                  <TableCell sx={{ ...cellStyle, width: "50px", maxWidth: 100 }}  align="left">
-                    <Typography sx={{
-                        ...cellStyle,
-                        overflow: "hidden",
-                        whiteSpace: "nowrap",
-                        textOverflow: "ellipsis",
-                        width: "100px",
-                      }}>{row.teamMembers}</Typography>
-                  </TableCell>
-
-
-
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.goal}</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.challenges}</Typography>
-                  </TableCell>
-
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.directInvest}</Typography>
-                  </TableCell>
-
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.when}</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.contactMode}</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>
                       {formatDate(row.createdAt)}
                     </Typography>
                   </TableCell>
@@ -450,7 +631,7 @@ const stickyStyle = {
                         onClick={() => noContFunc({ userId: row._id })}
                         sx={{
                           color: "#24a062",
-                          fontSize: "0.95rem",
+                          fontSize: "1rem",
                           cursor: "pointer",
                         }}
                       />
@@ -459,7 +640,7 @@ const stickyStyle = {
                         onClick={() => contFunc({ userId: row._id })}
                         sx={{
                           color: "#cc2525",
-                          fontSize: "0.95rem",
+                          fontSize: "1rem",
                           cursor: "pointer",
                         }}
                       />
@@ -467,7 +648,14 @@ const stickyStyle = {
                   </TableCell>
 
                   <TableCell sx={{ minWidth: "150px" }} align="left">
-                    {formatName(row.connectedBy)}
+                     <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "80px",
+                        textAlign:"center"
+                      }}>{formatName(row.connectedBy)}</Typography>
                   </TableCell>
                 </TableRow>
               ))}
