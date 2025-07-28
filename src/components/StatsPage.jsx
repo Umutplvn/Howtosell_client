@@ -104,25 +104,33 @@ const StatsPage = () => {
   };
 
   return (
-    <Box sx={{width:"50vw", maxHeight:"30rem"}}>
+    <Box sx={{width:"100%", maxHeight:"30rem", padding:"0 2rem"}}>
       <Typography sx={{fontSize:"1.5rem", fontWeight:"700", pb:"2rem", m:"auto"}}>Client Creation Statistics</Typography>
-      <ResponsiveContainer width="100%" height={400}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Line type="monotone" dataKey="count" stroke="#8884d8" />
-        </LineChart>
-      </ResponsiveContainer>
+ <ResponsiveContainer width="100%" height={400}>
+  <LineChart data={data}>
+    <CartesianGrid strokeDasharray="3 3" />
+    <XAxis 
+  dataKey="date"
+  tick={{
+    fontSize: 10,
+    angle: -45,
+    dy: 10,
+  }}
+/>
+    <YAxis />
+    <Tooltip />
+    <Line type="monotone" dataKey="count" stroke="#8884d8" />
+  </LineChart>
+</ResponsiveContainer>
+
 
        <Box
                 sx={{
                   width: "100%",
                   display: "flex",
-                  justifyContent: "flex-start",
+                  justifyContent: "center",
                   gap: "1rem",
-                  paddingLeft: "2rem",
+                  paddingTop: "2rem",
                 }}
               >
                 <Button
@@ -137,6 +145,7 @@ const StatsPage = () => {
                     borderRadius: "0.7rem",
                     width: "8rem",
                     transition: "0.4s",
+                    fontSize:"0.75rem",
       
                     "&:hover": {
                       backgroundColor: "#000000",
@@ -161,7 +170,8 @@ const StatsPage = () => {
                     borderRadius: "0.7rem",
                     width: "8rem",
                     transition: "0.4s",
-      
+                          fontSize:"0.75rem",
+
                     "&:hover": {
                       backgroundColor: "#000000",
                       color: "white",
