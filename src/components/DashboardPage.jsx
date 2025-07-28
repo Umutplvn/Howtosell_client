@@ -13,9 +13,7 @@ import * as XLSX from "xlsx";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ModalUnstyled from "../components/DeleteClientModal";
-import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import useDataCall from "../hooks/useDataCall";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 import NestedModal from "./CreateClientModal";
 import ReadNestedModal from "./ReadClientModal";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -662,63 +660,7 @@ const Members = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "flex-start",
-            gap: "1rem",
-            paddingLeft: "2rem",
-          }}
-        >
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{
-              mt: 4,
-              mb: 5,
-              textAlign: "center",
-              backgroundColor: "#F2F2F2",
-              color: "#494b56",
-              borderRadius: "0.7rem",
-              width: "8rem",
-              transition: "0.4s",
-
-              "&:hover": {
-                backgroundColor: "#000000",
-                color: "white",
-              },
-            }}
-            onClick={handleClientOpen}
-          >
-            <AddCircleIcon sx={{ mr: "0.5rem" }} />
-            CREATE
-          </Button>
-
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{
-              mt: 4,
-              mb: 5,
-              textAlign: "center",
-              backgroundColor: "#F2F2F2",
-              color: "#494b56",
-              borderRadius: "0.7rem",
-              width: "8rem",
-              transition: "0.4s",
-
-              "&:hover": {
-                backgroundColor: "#000000",
-                color: "white",
-              },
-            }}
-            onClick={handleExport}
-          >
-            <CloudDownloadIcon sx={{ mr: "0.5rem" }} />
-            EXPORT
-          </Button>
-        </Box>
+      
       </Box>
 
       <NestedModal clientOpen={clientOpen} setClientOpen={setClientOpen} />

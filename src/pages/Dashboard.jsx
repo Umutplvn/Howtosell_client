@@ -181,8 +181,10 @@ function DashboardLayoutBasic(props) {
     >
       <DashboardLayout>
         <DemoPageContent pathname={pathname} />
+        
       </DashboardLayout>
     </AppProvider>
+ 
   );
 }
 
