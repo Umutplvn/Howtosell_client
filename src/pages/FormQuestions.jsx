@@ -927,8 +927,7 @@ const FormQuestions = () => {
                   <span style={{ color: "#0445AF", marginRight: "5px" }}>
                     8.
                   </span>
-                  What Is the Main Objective You Wish to Achieve with Sales
-                  Training?{" "}
+                  What outcome would make sales training a massive win for you?{" "}
                 </Typography>
                 <RadioGroup
                   sx={{ width: { xs: "300px", sm: "400px" }, gap: 1.5 }}
@@ -938,9 +937,10 @@ const FormQuestions = () => {
                     if (event.key === "Enter") handleNextWithOther();
                   }}                >
                   {[
-                    "Increase sales revenue",
-                    "Improve closing rates",
-                    "Enhance product knowledge",
+                    "Consistently hitting (or exceeding) sales targets",
+                    "Closing more deals without being pushy",
+                    "Building a scalable, structured sales process",
+                    "Fixing underperformance in the current team",
                     "Other",
                   ].map((value) => (
                     <Sheet
@@ -1134,8 +1134,9 @@ const FormQuestions = () => {
                 >
                   {[
                     "Less than $5,000",
+                     "$2,000-$5,000",
                     "$5,000 - $10,000",
-                    "$2000-$5000",
+                   
                     "$10,000 - $20,000",
                     "Over $20,000",
                   ].map((value) => (

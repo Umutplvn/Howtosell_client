@@ -116,7 +116,7 @@ const Members = () => {
       "Company Name": user.companyName,
       "Company Website": user.companyWebsite,
       "How Large Is Your Sales Team?": user.teamMembers,
-      "What Is the Main Objective You Wish to Achieve with Sales Training?": user.goal,
+      "What outcome would make sales training a massive win for you?": user.goal,
       "What Are the Biggest Challenges You or Your Sales Team Is Facing?": user.challenges,
       "If you were confident that our sales training would help your team achieve these goals, what investment range would you feel comfortable with?": user.directInvest,
       "When Are You Looking to Implement Sales Training?": user.when,
@@ -232,8 +232,7 @@ const Members = () => {
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>
-                  What Is the Main Objective You Wish to Achieve with Sales Training?
-                  </Typography>
+What outcome would make sales training a massive win for you?                  </Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>

@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import pp from "../assets/ppSquare.png";
 import Footer from "../components/Footer";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Submitted = () => {
-  const isMobile = useMediaQuery('(max-width:500px)');
+  const isMobile = useMediaQuery("(max-width:500px)");
 
   return (
-<Box sx={{ height: "100vh", position: "relative" }}>
-     <Header />
+    <Box sx={{ height: "100vh", position: "relative" }}>
+      <Header />
       <Box
         sx={{
           width: "100vw",
@@ -19,7 +19,7 @@ const Submitted = () => {
           alignItems: "center",
           flexDirection: "column",
           justifyContent: "center",
-          pb:"3rem"
+          pb: "3rem",
         }}
       >
         <Box
@@ -29,9 +29,7 @@ const Submitted = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            p:"0 2rem",
-            
-            
+            p: "0 2rem",
           }}
         >
           <Typography
@@ -46,54 +44,63 @@ const Submitted = () => {
               mb: "2rem",
             }}
           >
-            Awesome! Your Application is Complete & We’ll be in Touch With You
-            Soon!
+            You're In. Here's What Happens Next.
           </Typography>
 
           <Box
-      sx={{
-        display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        width: '100%',
-        gap: '1rem',
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: isMobile ? '1rem' : '0',
-          width:isMobile? "100%":"25rem",
-        }}
-      >
-        <img src={pp} style={{ maxWidth: '100%',minWidth:"10rem", maxHeight: '10rem' }} alt="" />
-      </Box>
+            sx={{
+              display: "flex",
+              flexDirection: isMobile ? "column" : "row",
+              width: "100%",
+              gap: "1rem",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: isMobile ? "1rem" : "0",
+                width: isMobile ? "100%" : "25rem",
+              }}
+            >
+              <img
+                src={pp}
+                style={{
+                  maxWidth: "100%",
+                  minWidth: "10rem",
+                  maxHeight: "10rem",
+                  borderRadius: "0.3rem",
+                }}
+                alt=""
+              />
+            </Box>
 
-      <Typography sx={{ fontFamily: 'Inter', fontWeight: '300' }}>
-        Thanks for Applying for your breakthrough strategy session.
-        <br />
-        <br />
-        I will get in touch with you to arrange a call or simply call you
-        directly via WhatsApp or Phone (depending on what you selected in
-        the survey).
-        <br />
-        <br /> Please make sure that when we arrange to speak, that you
-        are in a quiet room and do not take the call from your car,
-        airport, or any other noisy place.
-        <br />
-        <br /> If you take the call in a noisy location, we will cancel
-        the call with you and not allow you to reschedule another one.
-        <br />
-        <br /> I look forward to helping you explode your business and
-        achieve massive success!
-        <br />
-        <br />
-        -Babar
-      </Typography>
-    </Box>
+            <Typography sx={{ fontFamily: "Inter", fontWeight: "300" }}>
+              Thanks for applying for a strategy session.
+              <br />
+              <br />
+              Over the next 24 hours, I’ll reach out via <strong style={{fontWeight:'600'}}>WhatsApp</strong>  or <strong style={{fontWeight:'600'}}>Instagram</strong>
+
+              {' '} to arrange a quick <strong style={{fontWeight:'600'}}>15–20 minute call.</strong>
+              <br />
+              <br /> This first call is casual, it’s just to see if we’re a good fit and if I can actually help you. If it makes sense for both of us, we’ll book a second, longer Zoom call where I’ll walk you through how everything works and what the next steps would be.
+              <br />
+              <br />
+              <strong style={{fontWeight:'600'}}>
+              Important:
+              </strong>
+              <br />
+             Please make sure you’re in a quiet space for both calls, no driving, no airports, no background noise. If the line is too noisy, we’ll end the call and won’t reschedule.
+              <br />
+              <br /> I look forward to learning more about your business and showing you what’s possible.
+              <br />
+              <br />
+              -Babar
+            </Typography>
+          </Box>
         </Box>
       </Box>
-      <Footer/>
+      <Footer />
     </Box>
   );
 };

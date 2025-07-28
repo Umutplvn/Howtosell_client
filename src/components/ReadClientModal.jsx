@@ -142,7 +142,7 @@ export default function ReadNestedModal({ readOpen, setReadOpen, data }) {
                 fontWeight: "700",
               }}
             >
-              8.What Is the Main Objective You Wish to Achieve with Sales Training?
+              8.What outcome would make sales training a massive win for you?
             </Typography>
             <Typography sx={{ color: "#0445AF" }}>{data?.goal}</Typography>
           </Box>

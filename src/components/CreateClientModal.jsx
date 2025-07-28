@@ -249,8 +249,7 @@ export default function NestedModal({ clientOpen, setClientOpen }) {
                 fontWeight: "700",
               }}
             >
-              8.What Is the Main Objective You Wish to Achieve with Sales
-              Training?
+              8.What outcome would make sales training a massive win for you?
             </Typography>
 
             <FormControl sx={{ width: "100%" }}>
