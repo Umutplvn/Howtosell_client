@@ -6,10 +6,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Box, TextField, Button, Typography } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import * as XLSX from "xlsx";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ModalUnstyled from "../components/DeleteClientModal";
@@ -42,9 +41,6 @@ const Members = () => {
   const handleClose = () => {
     setOpen(false);
     setSelectedUser(null);
-  };
-  const handleClientOpen = () => {
-    setClientOpen(true);
   };
 
   const handleReadFucn = (row) => {
@@ -99,47 +95,19 @@ const Members = () => {
   const stickyStyle = {
     position: "sticky",
     top: 0,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "white",
     whiteSpace: "normal",
     wordBreak: "break-word",
     zIndex: 1,
   };
 
-  const handleExport = () => {
-    const data = filterUsers?.map((user) => ({
-      "First Name": formatName(user.name),
-      "Last Name": user.lastName,
-      Email: user.email,
-      "Phone Number": user.phone,
-      "Company Name": user.companyName,
-      "Company Website": user.companyWebsite,
-      "How Large Is Your Sales Team?": user.teamMembers,
-      "What outcome would make sales training a massive win for you?":
-        user.goal,
-      "What Are the Biggest Challenges You or Your Sales Team Is Facing?":
-        user.challenges,
-      "If you were confident that our sales training would help your team achieve these goals, what investment range would you feel comfortable with?":
-        user.directInvest,
-      "When Are You Looking to Implement Sales Training?": user.when,
-      "Preferred Mode of Contact": user.contactMode,
-      "Created At": formatDate(user.createdAt),
-      Connected: user.connected,
-      "Connected By": user.connectedBy,
-    }));
-
-    const worksheet = XLSX.utils.json_to_sheet(data);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Clients");
-    XLSX.writeFile(workbook, "Clients.xlsx");
-  };
-
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "#f8f8f8", marginTop: "-2rem" }}>
       <Box
         sx={{
-          width: "100wh",
-          display: "flex",
-          mb: "1.5rem",
+          backgroundColor: "#f8f8f8",
+          paddingTop: "2rem",
+          borderBottom: "0.5px solid #a8a8a8",
         }}
       >
         <TextField
@@ -149,22 +117,23 @@ const Members = () => {
           sx={{
             width: { xs: "15rem", md: "20rem" },
             borderRadius: "2rem",
-            paddingLeft: "2rem",
+            padding: "0 0 1rem 0",
             "& .MuiOutlinedInput-root": {
-              height: "2.2rem",
+              fontSize: "0.75rem",
+              height: "1.8rem",
+              color: "black",
               "& fieldset": {
                 borderColor: "black",
                 borderRadius: "2rem",
               },
               "&:hover fieldset": {
-                borderColor: "#FE5E00",
+                borderColor: "#4f7fee",
               },
               "&.Mui-focused fieldset": {
-                borderColor: "#FE5E00",
+                borderColor: "#6490f5",
               },
               "& input": {
                 height: "auto",
-                padding: "0.75rem",
               },
             },
           }}
@@ -182,8 +151,8 @@ const Members = () => {
           sx={{
             overflow: "scroll",
             m: "auto",
-            height: "65vh",
-            width: "100%",
+            height: "90vh",
+            width: "100vw",
             overflow: "scroll",
           }}
         >
@@ -192,35 +161,41 @@ const Members = () => {
               <TableRow sx={cellStyle}>
                 <TableCell sx={stickyStyle}></TableCell>
 
-                <TableCell align="left"
+                <TableCell
+                  align="left"
                   sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                     minWidth: "90px",
+                    minWidth: "90px",
                     maxWidth: "90px",
                     width: "90px",
-                  }}>
+                  }}
+                >
                   <Typography sx={{ ...cellStyle, width: "90px" }}>
                     First Name
                   </Typography>
                 </TableCell>
 
-                <TableCell align="left"
+                <TableCell
+                  align="left"
                   sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                     minWidth: "90px",
+                    minWidth: "90px",
                     maxWidth: "90px",
                     width: "90px",
-                  }}>
+                  }}
+                >
                   <Typography sx={{ ...cellStyle, width: "70px" }}>
                     Last Name
                   </Typography>
@@ -244,7 +219,8 @@ const Members = () => {
                   sx={{
                     position: "sticky",
                     top: 0,
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     minWidth: "120px",
                     whiteSpace: "normal",
                     wordBreak: "break-word",
@@ -262,12 +238,13 @@ const Members = () => {
                   align="left"
                   sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                     minWidth: "150px",
+                    minWidth: "150px",
                     maxWidth: "150px",
                     width: "150px",
                   }}
@@ -280,10 +257,12 @@ const Members = () => {
                   </Typography>
                 </TableCell>
 
-                <TableCell   align="left"
+                <TableCell
+                  align="left"
                   sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     minWidth: "150px",
                     maxWidth: "150px",
@@ -291,18 +270,22 @@ const Members = () => {
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                  }}>
-                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
->
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+                  >
                     What Are the Biggest Challenges You or Your Sales Team Is
                     Facing?{" "}
                   </Typography>
                 </TableCell>
 
-
-                <TableCell align="left"  sx={{
+                <TableCell
+                  align="left"
+                  sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     minWidth: "150px",
                     maxWidth: "150px",
@@ -310,18 +293,21 @@ const Members = () => {
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                  }}>
-
-                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}>
-                 What investment range would
-                    you feel comfortable with?
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+                  >
+                    What investment range would you feel comfortable with?
                   </Typography>
                 </TableCell>
 
-
-                <TableCell align="left"  sx={{
+                <TableCell
+                  align="left"
+                  sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     minWidth: "150px",
                     maxWidth: "150px",
@@ -329,15 +315,21 @@ const Members = () => {
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                  }}>
-                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}>
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+                  >
                     When Are You Looking to Implement Sales Training?
                   </Typography>
                 </TableCell>
 
-                <TableCell align="left"  sx={{
+                <TableCell
+                  align="left"
+                  sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     minWidth: "90px",
                     maxWidth: "90px",
@@ -345,15 +337,25 @@ const Members = () => {
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                  }}>
-                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"90px" }}>
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "0.75rem",
+                      whiteSpace: "normal",
+                      width: "90px",
+                    }}
+                  >
                     Preferred Mode of Contact
                   </Typography>
                 </TableCell>
 
-                <TableCell align="left"  sx={{
+                <TableCell
+                  align="left"
+                  sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     minWidth: "80px",
                     maxWidth: "80px",
@@ -361,15 +363,25 @@ const Members = () => {
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                  }}>
-
-                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"80px" }}>Created At </Typography>
-
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "0.75rem",
+                      whiteSpace: "normal",
+                      width: "80px",
+                    }}
+                  >
+                    Created At{" "}
+                  </Typography>
                 </TableCell>
 
-                <TableCell align="left"  sx={{
+                <TableCell
+                  align="left"
+                  sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     minWidth: "80px",
                     maxWidth: "80px",
@@ -377,15 +389,25 @@ const Members = () => {
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                  }}>
-                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"80px" }}>
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "0.75rem",
+                      whiteSpace: "normal",
+                      width: "80px",
+                    }}
+                  >
                     Contacted
                   </Typography>
                 </TableCell>
-             
-                <TableCell align="left"  sx={{
+
+                <TableCell
+                  align="left"
+                  sx={{
                     position: "sticky",
-                    backgroundColor: "#f8f8f8",
+                    backgroundColor: "white",
+
                     top: 0,
                     minWidth: "80px",
                     maxWidth: "80px",
@@ -393,8 +415,15 @@ const Members = () => {
                     whiteSpace: "normal",
                     wordBreak: "break-word",
                     zIndex: 1,
-                  }}>
-                  <Typography sx={{ fontSize: "0.75rem", whiteSpace: "normal", width:"80px" }}>
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "0.75rem",
+                      whiteSpace: "normal",
+                      width: "80px",
+                    }}
+                  >
                     Contacted By
                   </Typography>
                 </TableCell>
@@ -414,7 +443,7 @@ const Members = () => {
                         display: "flex",
                         gap: "0.3rem",
                         alignItems: "center",
-                        width:"2.7rem"
+                        width: "2.7rem",
                       }}
                     >
                       <Typography
@@ -456,8 +485,7 @@ const Members = () => {
                     </Box>
                   </TableCell>
 
-                  <TableCell  sx={{ ...cellStyle, maxWidth: 100 }}
-                    align="left">
+                  <TableCell sx={{ ...cellStyle, maxWidth: 80 }} align="left">
                     <Typography
                       sx={{
                         ...cellStyle,
@@ -468,8 +496,7 @@ const Members = () => {
                     </Typography>
                   </TableCell>
 
-                  <TableCell sx={{ ...cellStyle, maxWidth:90 }}
-                    align="left">
+                  <TableCell sx={{ ...cellStyle, maxWidth: 80 }} align="left">
                     <Typography
                       sx={{
                         ...cellStyle,
@@ -482,8 +509,7 @@ const Members = () => {
                       {formatName(row.lastName)}
                     </Typography>
                   </TableCell>
-                  <TableCell sx={{ ...cellStyle, maxWidth: 150 }}
-                    align="left">
+                  <TableCell sx={{ ...cellStyle, maxWidth: 150 }} align="left">
                     <Typography
                       sx={{
                         ...cellStyle,
@@ -539,10 +565,7 @@ const Members = () => {
                     </Typography>
                   </TableCell>
 
-                  <TableCell
-                    sx={{ ...cellStyle, maxWidth: 260 }}
-                    align="left"
-                  >
+                  <TableCell sx={{ ...cellStyle, maxWidth: 260 }} align="left">
                     <Typography
                       sx={{
                         ...cellStyle,
@@ -556,9 +579,7 @@ const Members = () => {
                     </Typography>
                   </TableCell>
 
-                  <TableCell
-                    align="left"
-                  >
+                  <TableCell align="left">
                     <Typography
                       sx={{
                         ...cellStyle,
@@ -573,53 +594,71 @@ const Members = () => {
                   </TableCell>
 
                   <TableCell align="left">
-                    <Typography  sx={{
+                    <Typography
+                      sx={{
                         ...cellStyle,
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
                         width: "150px",
-                      }}>{row.challenges}</Typography>
+                      }}
+                    >
+                      {row.challenges}
+                    </Typography>
                   </TableCell>
 
                   <TableCell align="left">
-                    <Typography  sx={{
+                    <Typography
+                      sx={{
                         ...cellStyle,
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
                         width: "120px",
-                      }}>{row.directInvest}</Typography>
+                      }}
+                    >
+                      {row.directInvest}
+                    </Typography>
                   </TableCell>
 
                   <TableCell align="left">
-                    <Typography sx={{
+                    <Typography
+                      sx={{
                         ...cellStyle,
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
                         width: "120px",
-                      }}>{row.when}</Typography>
+                      }}
+                    >
+                      {row.when}
+                    </Typography>
                   </TableCell>
 
                   <TableCell align="left">
-                    <Typography sx={{
+                    <Typography
+                      sx={{
                         ...cellStyle,
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
                         width: "80px",
-                      }}>{row.contactMode}</Typography>
+                      }}
+                    >
+                      {row.contactMode}
+                    </Typography>
                   </TableCell>
 
                   <TableCell align="left">
-                    <Typography sx={{
+                    <Typography
+                      sx={{
                         ...cellStyle,
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
                         width: "90px",
-                      }}>
+                      }}
+                    >
                       {formatDate(row.createdAt)}
                     </Typography>
                   </TableCell>
@@ -646,21 +685,24 @@ const Members = () => {
                   </TableCell>
 
                   <TableCell sx={{ minWidth: "150px" }} align="left">
-                     <Typography sx={{
+                    <Typography
+                      sx={{
                         ...cellStyle,
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
                         width: "80px",
-                        textAlign:"center"
-                      }}>{formatName(row.connectedBy)}</Typography>
+                        textAlign: "center",
+                      }}
+                    >
+                      {formatName(row.connectedBy)}
+                    </Typography>
                   </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-      
       </Box>
 
       <NestedModal clientOpen={clientOpen} setClientOpen={setClientOpen} />
