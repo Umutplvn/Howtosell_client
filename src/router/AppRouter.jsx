@@ -13,6 +13,7 @@ import PrivateRouter from "../pages/PrivateRouter";
 import Submitted from "../pages/Submitted";
 import NotFound from "../pages/NotFound";
 import About from "../pages/About";
+import Testimonials from "../pages/Testimonials";
 
 const AppRouter = () => {
   return (
@@ -29,6 +30,7 @@ const AppRouter = () => {
       <Route path="/dbmain" element={<DbMain/>}/>
       <Route path="/submitted" element={<Submitted/>}/>
       <Route path="/about" element={<About/>}/>
+      <Route path="/testimonials" element={<Testimonials/>}/>
       <Route path="*" element={<NotFound/>}/>
 
       <Route path="/" element={<PrivateRouter />}>

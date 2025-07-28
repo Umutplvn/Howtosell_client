@@ -24,20 +24,40 @@ const Header = () => {
     <Box  onClick={() => navigate("/")} sx={{ width: { xs: "12rem", sm: "15rem" }, ml: "-1rem", cursor:"pointer" }}>
       <img src={logo} alt="How To Sell" style={{ width: "100%" }} />
     </Box>
-    <Typography
+
+
+    <Box sx={{display:'flex', gap:{ xs: "0.5rem", sm: "1rem" }}}>
+      <Typography
       onClick={() => navigate("/about")}
       sx={{
         fontFamily: "Inter",
         fontOpticalSizing: "auto",
         fontWeight: 850,
         fontStyle: "normal",
-        fontSize: { xs: "1.2rem", sm: "1.5rem" },
+        fontSize: { xs: "1rem", sm: "1.4rem" },
         cursor: "pointer",
         color: "inherit",
       }}
     >
       About
     </Typography>
+
+    <Typography
+      onClick={() => navigate("/testimonials")}
+      sx={{
+        fontFamily: "Inter",
+        fontOpticalSizing: "auto",
+        fontWeight: 850,
+        fontStyle: "normal",
+        fontSize: { xs: "1rem", sm: "1.4rem" },
+        cursor: "pointer",
+        color: "inherit",
+      }}
+    >
+      Testimonials
+    </Typography>
+
+    </Box>
   </Box>
     </header>
   )
