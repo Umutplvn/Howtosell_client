@@ -177,8 +177,7 @@ function DashboardLayoutBasic(props) {
       router={router}
       theme={demoTheme}
       window={demoWindow}
-      branding={{ title: "How To Sell", logo: "" }}
-      
+      branding={{ title: "How To Sell", logo: "" }}      
     >
       <DashboardLayout>
         <DemoPageContent pathname={pathname} />

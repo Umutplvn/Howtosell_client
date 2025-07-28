@@ -18,8 +18,9 @@ import useDataCall from "../hooks/useDataCall";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import NestedModal from "./CreateClientModal";
 import ReadNestedModal from "./ReadClientModal";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import CenterFocusWeakIcon from '@mui/icons-material/CenterFocusWeak';
+import ClearIcon from "@mui/icons-material/Clear";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+
 const Members = () => {
   const { name } = useSelector((state) => state?.auth);
   const { clients } = useSelector((state) => state?.appData);
@@ -30,9 +31,6 @@ const Members = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [clientOpen, setClientOpen] = useState(false);
   const [data, setData] = useState({});
-
-
-  console.log(clients);
 
   useEffect(() => {
     listClients();
@@ -75,56 +73,59 @@ const Members = () => {
 
   function formatDate(isoString) {
     const date = new Date(isoString);
-      const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); 
-    const year = String(date.getFullYear()).slice(2); 
-  
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-  
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear()).slice(2);
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
     const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-  
+
     return formattedDate;
   }
-
 
   const filterUsers = clients?.filter(
     (item) =>
       item?.name?.toLowerCase().includes(search?.toLowerCase()) ||
       item?.email?.toLowerCase().includes(search?.toLowerCase()) ||
       item?.lastName?.toLowerCase().includes(search?.toLowerCase()) ||
-      item?.phone.includes(search) 
+      item?.phone.includes(search)
   );
 
   const cellStyle = {
-    height: "3rem",
-    overflow: "scroll",
-    minWidth: "200px",
-    m: "-0.5rem",
+    fontSize: "0.8rem",
+    whiteSpace: "nowrap",
   };
 
-  const stickyStyle={ position: 'sticky', top: 0, backgroundColor: '#f8f8f8'
-}
-
+const stickyStyle = {
+  position: "sticky",
+  top: 0,
+  backgroundColor: "#f8f8f8",
+  zIndex: 1,
+  whiteSpace: "normal",       // ❗ Satıra sığmazsa alt satıra geçsin
+  wordBreak: "break-word",    // ❗ Uzun kelimeler de bölünebilsin
+  padding: "0.5rem",
+};
 
   const handleExport = () => {
     const data = filterUsers?.map((user) => ({
       "First Name": formatName(user.name),
       "Last Name": user.lastName,
-      "Email": user.email,
+      Email: user.email,
       "Phone Number": user.phone,
       "Company Name": user.companyName,
       "Company Website": user.companyWebsite,
       "How Large Is Your Sales Team?": user.teamMembers,
-      "What outcome would make sales training a massive win for you?": user.goal,
-      "What Are the Biggest Challenges You or Your Sales Team Is Facing?": user.challenges,
-      "If you were confident that our sales training would help your team achieve these goals, what investment range would you feel comfortable with?": user.directInvest,
+      "What outcome would make sales training a massive win for you?":
+        user.goal,
+      "What Are the Biggest Challenges You or Your Sales Team Is Facing?":
+        user.challenges,
+      "If you were confident that our sales training would help your team achieve these goals, what investment range would you feel comfortable with?":
+        user.directInvest,
       "When Are You Looking to Implement Sales Training?": user.when,
-      "Preferred Mode of Contact":
-        user.contactMode,
-      "Created At": formatDate(user.createdAt), 
-        "Connected":user.connected,
-        "Connected By":user.connectedBy
+      "Preferred Mode of Contact": user.contactMode,
+      "Created At": formatDate(user.createdAt),
+      Connected: user.connected,
+      "Connected By": user.connectedBy,
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(data);
@@ -139,9 +140,7 @@ const Members = () => {
         sx={{
           width: "100wh",
           display: "flex",
-          justifyContent: "center",
-          pt: "2rem",
-          mb: "2rem",
+          mb: "1.5rem",
         }}
       >
         <TextField
@@ -151,6 +150,7 @@ const Members = () => {
           sx={{
             width: { xs: "15rem", md: "20rem" },
             borderRadius: "2rem",
+            paddingLeft: "2rem",
             "& .MuiOutlinedInput-root": {
               height: "2.2rem",
               "& fieldset": {
@@ -176,95 +176,107 @@ const Members = () => {
         sx={{
           overflow: "scroll",
           m: "auto",
-          width: `75vw`,
         }}
       >
         <TableContainer
           component={Paper}
           sx={{
-            borderRadius: "1rem",
             overflow: "scroll",
             m: "auto",
-            height: "55vh",
+            height: "65vh",
+            width: "100%",
+            overflow: "scroll",
           }}
         >
-          <Table sx={{ minWidth: 350 }} aria-label="simple table">
-            <TableHead sx={{position:"sticky", pb:"4rem"}}>
+          <Table sx={{ minWidth: 350 }} size="small" aria-label="simple table">
+            <TableHead sx={{ position: "sticky", pb: "4rem" }}>
               <TableRow sx={cellStyle}>
                 <TableCell sx={stickyStyle}></TableCell>
 
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                   First Name
-                  </Typography>
+                  <Typography sx={cellStyle}>First Name</Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                    Last Name
-                  </Typography>
+                  <Typography sx={cellStyle}>Last Name</Typography>
                 </TableCell>
 
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                  Email
-                  </Typography>
+                  <Typography sx={cellStyle}>Email</Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                    Phone Number
-                  </Typography>
+                  <Typography sx={cellStyle}>Phone Number</Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                  Company Name
-                  </Typography>
+                  <Typography sx={cellStyle}>Company Name</Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                  Company Website
+                  <Typography sx={cellStyle}>Company Website</Typography>
+                </TableCell>
+
+                <TableCell align="left" sx={{ position: "sticky",
+    top: 0,
+    backgroundColor: "#f8f8f8",
+    width: "120px",
+    maxWidth: "120px",
+    minWidth: "120px",
+    whiteSpace: "normal",
+    wordBreak: "break-word",
+    padding: "0.5rem",
+    zIndex: 1
+                }}>
+                  <Typography sx={{ fontSize: "0.75rem",
+      lineHeight: 1.2,
+      whiteSpace: "normal"}}>
+                    How Large Is Your Sales Team?
                   </Typography>
                 </TableCell>
 
+                
                 <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>
-                  How Large Is Your Sales Team?
+                    What outcome would make sales training a massive win for
+                    you?{" "}
                   </Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>
-What outcome would make sales training a massive win for you?                  </Typography>
-                </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                  What Are the Biggest Challenges You or Your Sales Team Is Facing?                   </Typography>
-                </TableCell>
-                <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={cellStyle}>
-                  If you were confident that our sales training would help your team achieve these goals, what investment range would you feel comfortable with?
+                    What Are the Biggest Challenges You or Your Sales Team Is
+                    Facing?{" "}
                   </Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>
-                  When Are You Looking to Implement Sales Training?
+                    If you were confident that our sales training would help
+                    your team achieve these goals, what investment range would
+                    you feel comfortable with?
                   </Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>
-                  Preferred Mode of Contact                  </Typography>
+                    When Are You Looking to Implement Sales Training?
+                  </Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>
-                  Created At                 </Typography>
+                    Preferred Mode of Contact{" "}
+                  </Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={{ width: "80px", height: "3rem", }}>Contacted</Typography>
+                  <Typography sx={cellStyle}>Created At </Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
-                  <Typography sx={{ width: "100px", height: "3rem", }}>Contacted By</Typography>
+                  <Typography sx={{ width: "80px", height: "3rem" }}>
+                    Contacted
+                  </Typography>
+                </TableCell>
+                <TableCell align="left" sx={stickyStyle}>
+                  <Typography sx={{ width: "100px", height: "3rem" }}>
+                    Contacted By
+                  </Typography>
                 </TableCell>
               </TableRow>
             </TableHead>
-            <TableBody >
+            <TableBody>
               {filterUsers?.map((row, index) => (
                 <TableRow
                   key={row?._id}
@@ -276,23 +288,24 @@ What outcome would make sales training a massive win for you?                  <
                     <Box
                       sx={{
                         display: "flex",
-                        gap: "0.5rem",
+                        gap: "0.3rem",
                         justifyContent: "center",
                         alignItems: "center",
                       }}
                     >
                       <Typography
                         sx={{
-                          fontWeight: "600",
-                          color: "#0445AF",
+                          fontSize: "0.9rem",
+                          fontWeight: "800",
                         }}
                       >
                         {index + 1})
                       </Typography>{" "}
-                      <HighlightOffIcon
+                      <ClearIcon
                         onClick={() => handleOpen(row)}
                         sx={{
                           color: "#4b4b4b",
+                          fontSize: "1rem",
                           ":hover": {
                             cursor: "pointer",
                             transform: "scale(1.04)",
@@ -302,9 +315,10 @@ What outcome would make sales training a massive win for you?                  <
                           },
                         }}
                       />
-                      <CenterFocusWeakIcon
+                      <ZoomInIcon
                         onClick={() => handleReadFucn(row)}
                         sx={{
+                          fontSize: "1rem",
                           color: "#4b4b4b",
                           ":hover": {
                             cursor: "pointer",
@@ -317,35 +331,97 @@ What outcome would make sales training a massive win for you?                  <
                       />
                     </Box>
                   </TableCell>
-         
 
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>
+                  <TableCell
+             
+                    align="left"
+                  >
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "90px",
+                      }}
+                    >
                       {formatName(row.name)}
                     </Typography>
                   </TableCell>
 
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>
+                  <TableCell
+               
+                    align="left"
+                  >
+                    <Typography   sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "90px",
+                      }}>
                       {formatName(row.lastName)}
                     </Typography>
+
+
                   </TableCell>
                   <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.email}</Typography>
+                    <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "120px",
+                      }}>{row.email}</Typography>
+
                   </TableCell>
                   <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.phone}</Typography>
+                    <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "120px",
+                      }}>{row.phone}</Typography>
                   </TableCell>
 
+
+
                   <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.companyName}</Typography>
+                    <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "100px",
+                      }}>{row.companyName}</Typography>
                   </TableCell>
+
+
+
                   <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.companyWebsite}</Typography>
+                    <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "100px",
+                      }}>{row.companyWebsite}</Typography>
                   </TableCell>
-                  <TableCell align="left">
-                    <Typography sx={cellStyle}>{row.teamMembers}</Typography>
+
+
+                  <TableCell sx={{ ...cellStyle, width: "50px", maxWidth: 100 }}  align="left">
+                    <Typography sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "100px",
+                      }}>{row.teamMembers}</Typography>
                   </TableCell>
+
+
+
                   <TableCell align="left">
                     <Typography sx={cellStyle}>{row.goal}</Typography>
                   </TableCell>
@@ -364,7 +440,9 @@ What outcome would make sales training a massive win for you?                  <
                     <Typography sx={cellStyle}>{row.contactMode}</Typography>
                   </TableCell>
                   <TableCell align="left">
-                    <Typography sx={cellStyle}>{formatDate(row.createdAt)}</Typography>
+                    <Typography sx={cellStyle}>
+                      {formatDate(row.createdAt)}
+                    </Typography>
                   </TableCell>
                   <TableCell align="center">
                     {row.connected ? (
@@ -400,8 +478,9 @@ What outcome would make sales training a massive win for you?                  <
           sx={{
             width: "100%",
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "flex-start",
             gap: "1rem",
+            paddingLeft: "2rem",
           }}
         >
           <Button

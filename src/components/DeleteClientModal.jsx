@@ -4,9 +4,7 @@ import clsx from "clsx";
 import { styled, css } from "@mui/system";
 import { Modal as BaseModal } from "@mui/base/Modal";
 import { Box, Button, Typography } from "@mui/material";
-import { toast } from "react-hot-toast";
 import useDataCall from "../hooks/useDataCall";
-import useAuthCall from "../hooks/useAuthCall";
 
 
 export default function ModalUnstyled({ handleClose, open, userId, name}) {
@@ -26,7 +24,7 @@ const formatName = (name) => {
   return (
     <Box>
       <Modal
-        sx={{ maxWidth: "350px", width: "90%", margin: "auto" }}
+        sx={{ maxWidth: "360px", width: "100%", margin: "auto" }}
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"
         open={open}
