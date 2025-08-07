@@ -12,6 +12,7 @@ import PaulineNguyen from '../assets/logos/Pauline_Nguyen.png';
 import ProSine from '../assets/logos/proshine.png';
 import SitaraClinic from '../assets/logos/Sitara_Clinic.png';
 import Time from '../assets/logos/Time.png';
+import Dch from '../assets/logos/dch.png';
 
 const clientData = [
   { src: BluHvn, link: 'https://bluehaven.com.au/' },
@@ -24,6 +25,7 @@ const clientData = [
   { src: ProSine, link: 'https://www.proshines.ca/' },
   { src: SitaraClinic, link: 'https://sitaramedicalclinic.com/' },
   { src: Time, link: 'https://www.timeclinic.ie/' },
+  { src: Dch, link: 'https://www.devcentrehouse.eu/en/' },
 ];
 
 const ClientLogos = () => {

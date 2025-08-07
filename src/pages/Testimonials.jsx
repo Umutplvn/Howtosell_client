@@ -50,7 +50,6 @@ function VideoWithSkeleton() {
             marginBottom: "3rem",
           }}
         >
-
           {!loaded1 && (
             <Skeleton
               variant="rectangular"
@@ -71,16 +70,14 @@ function VideoWithSkeleton() {
               borderRadius: "0.4rem",
             }}
           />
-                    <Box 
-                    sx={{marginTop:"2rem"}}
-                    >
+          <Box sx={{ marginTop: "2rem" }}>
             <Typography
               sx={{
                 fontStyle: "italic",
-                fontSize: {xs:"0.8rem", md:"1rem"},
+                fontSize: { xs: "0.8rem", md: "1rem" },
                 color: "#333",
                 position: "relative",
-                paddingLeft: {xs:"1.5rem", md:"2rem"},
+                paddingLeft: { xs: "1.5rem", md: "2rem" },
               }}
             >
               <FormatQuoteIcon
@@ -88,17 +85,17 @@ function VideoWithSkeleton() {
                   position: "absolute",
                   left: "0",
                   top: "0",
-                fontSize: {xs:"1rem", md:"1.5rem"},
+                  fontSize: { xs: "1rem", md: "1.5rem" },
                   color: "#ccc",
                 }}
               />
-              “Honestly, Babar I like that you have a little bit of an edge to
-              you like you’re not afraid to crack the whip unknown to you. You
-              live on the other side of the big ocean. And I love that you have
-              imposed yourself into their day-to-day in a way that I would have
-              my sales manager impose himself on these people right? We need to
-              get them to do the practices once once they fall in line with that
-              we’ve seen you know that the results follow.”
+              “Honestly, Babar, I like that you have a little bit of an edge to
+              you like you’re not afraid to crack the whip. These people are
+              unknown to you. You live on the other side of the big ocean. And I
+              love that you have imposed yourself into their day-to-day in a way
+              that I would have my sales manager impose himself on these people,
+              right? We need to get them to do the practices once they fall in
+              line with that, we’ve seen you know that the results follow.”
             </Typography>
 
             <Box
@@ -111,7 +108,7 @@ function VideoWithSkeleton() {
               <Typography
                 sx={{
                   fontWeight: "600",
-                fontSize: {xs:"0.8rem", md:"1rem"},
+                  fontSize: { xs: "0.8rem", md: "1rem" },
                   color: "#555",
                 }}
               >
@@ -123,7 +120,7 @@ function VideoWithSkeleton() {
                 rel="noopener noreferrer"
                 sx={{
                   fontWeight: "400",
-                fontSize: {xs:"0.75rem", md:"0.9rem"},
+                  fontSize: { xs: "0.75rem", md: "0.9rem" },
                   color: "#007bff",
                   textDecoration: "none",
                   "&:hover": {
@@ -135,7 +132,6 @@ function VideoWithSkeleton() {
               </Link>
             </Box>
           </Box>
-          
         </Box>
 
         {/* VIDEO2 */}
@@ -147,7 +143,6 @@ function VideoWithSkeleton() {
             marginTop: "1rem",
           }}
         >
-       
           {!loaded2 && (
             <Skeleton
               variant="rectangular"
@@ -169,14 +164,14 @@ function VideoWithSkeleton() {
             }}
           />
 
-             <Box sx={{marginTop:"2rem"}}>
+          <Box sx={{ marginTop: "2rem" }}>
             <Typography
               sx={{
                 fontStyle: "italic",
-                fontSize: {xs:"0.8rem", md:"1rem"},
+                fontSize: { xs: "0.8rem", md: "1rem" },
                 color: "#333",
                 position: "relative",
-                paddingLeft: {xs:"1.5rem", md:"2rem"},
+                paddingLeft: { xs: "1.5rem", md: "2rem" },
               }}
             >
               <FormatQuoteIcon
@@ -184,15 +179,11 @@ function VideoWithSkeleton() {
                   position: "absolute",
                   left: "0",
                   top: "0",
-                fontSize: {xs:"1rem", md:"1.5rem"},
+                  fontSize: { xs: "1rem", md: "1.5rem" },
                   color: "#ccc",
                 }}
               />
-              “They gained motivation. They gained some clarity. And if I keep
-              that pace with them, they’ll bring some nice numbers by the end of
-              the year. Just because of the increased number of cold outreach,
-              and increased number of tasks they are doing in a way that they
-              want to do it.”
+             “They gained motivation. They gained some clarity. And if I keep that pace with them, they’ll bring some nice numbers by the end of the year. Just because of the increased number of cold outreach, and the increased number of tasks they are doing in a way that they want to do it.”
             </Typography>
 
             <Box
@@ -205,7 +196,7 @@ function VideoWithSkeleton() {
               <Typography
                 sx={{
                   fontWeight: "600",
-                fontSize: {xs:"0.8rem", md:"1rem"},
+                  fontSize: { xs: "0.8rem", md: "1rem" },
                   color: "#555",
                 }}
               >
@@ -217,7 +208,7 @@ function VideoWithSkeleton() {
                 rel="noopener noreferrer"
                 sx={{
                   fontWeight: "400",
-                fontSize: {xs:"0.75rem", md:"0.9rem"},
+                  fontSize: { xs: "0.75rem", md: "0.9rem" },
                   color: "#007bff",
                   textDecoration: "none",
                   "&:hover": {
@@ -240,7 +231,6 @@ function VideoWithSkeleton() {
             marginTop: "1rem",
           }}
         >
-        
           {!loaded3 && (
             <Skeleton
               variant="rectangular"
@@ -261,14 +251,14 @@ function VideoWithSkeleton() {
               borderRadius: "0.4rem",
             }}
           />
-            <Box sx={{marginTop:"2rem"}}>
+          <Box sx={{ marginTop: "2rem" }}>
             <Typography
               sx={{
                 fontStyle: "italic",
-                fontSize: {xs:"0.8rem", md:"1rem"},
+                fontSize: { xs: "0.8rem", md: "1rem" },
                 color: "#333",
                 position: "relative",
-                paddingLeft: {xs:"1.5rem", md:"2rem"},
+                paddingLeft: { xs: "1.5rem", md: "2rem" },
               }}
             >
               <FormatQuoteIcon
@@ -276,14 +266,11 @@ function VideoWithSkeleton() {
                   position: "absolute",
                   left: "0",
                   top: "0",
-                fontSize: {xs:"1rem", md:"1.5rem"},
+                  fontSize: { xs: "1rem", md: "1.5rem" },
                   color: "#ccc",
                 }}
               />
-              “What I learned from you the most is… just execute, listen to the
-              customer, listen to what they need, and different strategies to
-              ask the right questions and be precise like BOOM. Like that’s how
-              you do it. Don’t overthink, don’t wait, just act!”
+      “What I learned from you the most is… just execute, listen to the customer, listen to what they need, and use different strategies to ask the right questions and be precise like BOOM. Like that’s how you do it. Don’t overthink, don’t wait, just act!”
             </Typography>
 
             <Box
@@ -296,7 +283,7 @@ function VideoWithSkeleton() {
               <Typography
                 sx={{
                   fontWeight: "600",
-                fontSize: {xs:"0.8rem", md:"1rem"},
+                  fontSize: { xs: "0.8rem", md: "1rem" },
                   color: "#555",
                 }}
               >
@@ -308,7 +295,7 @@ function VideoWithSkeleton() {
                 rel="noopener noreferrer"
                 sx={{
                   fontWeight: "400",
-                fontSize: {xs:"0.75rem", md:"0.9rem"},
+                  fontSize: { xs: "0.75rem", md: "0.9rem" },
                   color: "#007bff",
                   textDecoration: "none",
                   "&:hover": {
