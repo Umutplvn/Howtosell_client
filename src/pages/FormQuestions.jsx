@@ -39,20 +39,20 @@ const FormQuestions = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
-      name:"",
-      lastName: "",
-      email: "",
-      phone: "",
-      insta: "",
-      companyName: "",
-      companyWebsite:"",
-      role: "",
-      teamSize: "",
-      goal: "",
-      challenge: "",
-      urgency:  "",
-      investment: "",
-      when: "",
+    name: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    insta: "",
+    companyName: "",
+    companyWebsite: "",
+    role: "",
+    teamSize: "",
+    goal: "",
+    challenge: "",
+    urgency: "",
+    investment: "",
+    when: "",
   });
 
   const handleResize = () => {
@@ -171,11 +171,15 @@ const FormQuestions = () => {
       return;
     }
 
-    if (currentQuestion === 7 && selectedValue === "Other" && !otherText.trim()) {
-  setRequired(true);
-  setErrorMessage("Please fill this in");
-  return;
-}
+    if (
+      currentQuestion === 7 &&
+      selectedValue === "Other" &&
+      !otherText.trim()
+    ) {
+      setRequired(true);
+      setErrorMessage("Please fill this in");
+      return;
+    }
 
     setRequired(false);
     setErrorMessage("");
@@ -1151,19 +1155,29 @@ const FormQuestions = () => {
                   </span>
                   What are you aiming to achieve with sales training?
                 </Typography>
+                <Typography
+                  sx={{
+                    width: {
+                      xs: "300px",
+                      sm: "500px",
+                      mt: "-0.5rem",
+                      fontSize: "0.85rem",
+                    },
+                  }}
+                >
+                  (E.g. close more deals, fix team process, reduce ghosting)
+                </Typography>
+
                 <TextField
                   autoFocus
                   variant="standard"
-                  placeholder=" E.g. close more deals, fix team process, reduce ghosting"
+                  placeholder="Please type here..."
                   sx={{
                     width: { xs: "300px", sm: "500px" },
                     mt: 2,
                     "& .MuiInputBase-input": {
                       color: "#0445AF",
                       fontSize: "1.2rem",
-                      "&::placeholder": {
-                        fontSize: !isMobile ? "0.85rem" : undefined,
-                      },
                     },
                   }}
                   value={answers[currentQuestion] || ""}
@@ -1248,11 +1262,24 @@ const FormQuestions = () => {
                     11.
                   </span>
                   What’s the biggest sales challenge you’re facing right now?
+                </Typography>{" "}
+                <Typography
+                  sx={{
+                    width: {
+                      xs: "300px",
+                      sm: "500px",
+                      mt: "-0.5rem",
+                      fontSize: "0.85rem",
+                    },
+                  }}
+                >
+                  (E.g. team not following structure, leads going cold, low
+                  close rates)
                 </Typography>
                 <TextField
                   autoFocus
                   variant="standard"
-                  placeholder="E.g. team not following structure, leads going cold, low close rates"
+                  placeholder="Please type here..."
                   sx={{
                     width: { xs: "300px", sm: "500px" },
                     mt: 2,
@@ -1294,7 +1321,6 @@ const FormQuestions = () => {
                     </Typography>
                   </Box>
                 )}
-
                 <Box
                   sx={{
                     display: "flex",
@@ -1348,7 +1374,8 @@ const FormQuestions = () => {
                   What makes now the right time to fix this?{" "}
                 </Typography>
 
-                <Typography
+    
+                         <Typography
                   sx={{
                     width: {
                       xs: "300px",
@@ -1358,22 +1385,36 @@ const FormQuestions = () => {
                     },
                   }}
                 >
-                  (Optional but powerful)
+              (Optional but powerful) 
+
                 </Typography>
+
+                         <Typography
+                  sx={{
+                    width: {
+                      xs: "300px",
+                      sm: "500px",
+                      mt: "-0.5rem",
+                      fontSize: "0.85rem",
+                    },
+                  }}
+                >
+              Creates urgency. Lets you spot hot leads.
+
+                </Typography>
+
 
                 <TextField
                   autoFocus
                   variant="standard"
-                  placeholder="Creates urgency. Lets you spot hot leads."
+                  placeholder="Please type here..."
                   sx={{
                     width: { xs: "300px", sm: "500px" },
                     mt: 2,
                     "& .MuiInputBase-input": {
                       color: "#0445AF",
                       fontSize: "1.2rem",
-                      "&::placeholder": {
-                        fontSize: !isMobile ? "0.85rem" : undefined,
-                      },
+                    
                     },
                   }}
                   value={answers[currentQuestion] || ""}
@@ -1457,9 +1498,84 @@ const FormQuestions = () => {
                   <span style={{ color: "#0445AF", marginRight: "5px" }}>
                     13.
                   </span>
-If this could solve your exact problem, what investment range would feel comfortable?
+                  If this could solve your exact problem, what investment range
+                  would feel comfortable?
+                </Typography>
+                <RadioGroup
+                  sx={{ width: { xs: "300px", sm: "400px" }, gap: 1.5 }}
+                  value={answers[currentQuestion] || ""}
+                  onChange={handleRadioChange}
+                  onKeyDown={handleKeyDown}
+                >
+                  {["€5,000–€10,000", "€10,000–€20,000", "€20,000+"].map(
+                    (value) => (
+                      <Sheet
+                        key={value}
+                        sx={{ p: 2, borderRadius: "sm", boxShadow: "sm" }}
+                      >
+                        <Radio
+                          onClick={() => handleRadioClick(value)}
+                          label={value}
+                          overlay
+                          disableIcon
+                          value={value}
+                        />
+                      </Sheet>
+                    )
+                  )}
+                </RadioGroup>
 
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: { xs: "300px", sm: "400px" },
+                  }}
+                >
+                  {required ? (
+                    <Box
+                      sx={{
+                        backgroundColor: "#F7E6E5",
+                        color: "#bc1616",
+                        p: "0.5rem",
+                        mt: "0.5rem",
+                        mb: "-1rem",
+                        borderRadius: "0.2rem",
+                        width: "9rem",
+                        textAlign: "center",
+                        display: "flex",
+                        gap: "0.2rem",
+                      }}
+                    >
+                      <WarningRoundedIcon style={{ fontSize: "0.98rem" }} />
+                      <Typography sx={{ fontSize: "0.8rem" }}>
+                        Please fill this in
+                      </Typography>
+                    </Box>
+                  ) : (
+                    <Box sx={{ height: "2rem" }}></Box>
+                  )}
+                </Box>
+              </>
+            )}
 
+            {/* Question 14 - when */}
+            {currentQuestion === 13 && (
+              <>
+                <Typography
+                  sx={{
+                    mb: 2,
+                    fontWeight: "500",
+                    fontSize: "1.3rem",
+                    letterSpacing: "0.03em",
+                    textAlign: "left",
+                    width: { xs: "300px", sm: "400px" },
+                  }}
+                >
+                  <span style={{ color: "#0445AF", marginRight: "5px" }}>
+                    14.
+                  </span>
+                  When would you ideally like to start?
                 </Typography>
                 <RadioGroup
                   sx={{ width: { xs: "300px", sm: "400px" }, gap: 1.5 }}
@@ -1468,9 +1584,10 @@ If this could solve your exact problem, what investment range would feel comfort
                   onKeyDown={handleKeyDown}
                 >
                   {[
-                    "€5,000–€10,000",
-                    "€10,000–€20,000",
-                    "€20,000+"
+                    "ASAP",
+                    "1–2 weeks",
+                    "Within a month",
+                    "Just exploring",
                   ].map((value) => (
                     <Sheet
                       key={value}
@@ -1518,114 +1635,34 @@ If this could solve your exact problem, what investment range would feel comfort
                     <Box sx={{ height: "2rem" }}></Box>
                   )}
                 </Box>
+
+                {/*SUBMIT BUTTON */}
+                {currentQuestion === 13 && !isMobile && (
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: "1.5rem",
+                    }}
+                  >
+                    <LoadingButton
+                      size="small"
+                      onClick={handleSubmit}
+                      loading={loading}
+                      loadingPosition="end"
+                      variant="contained"
+                      sx={{
+                        width: "7rem",
+                        backgroundColor: (theme) =>
+                          loading ? "#E0E0E0" : "#0544AF",
+                      }}
+                    >
+                      Submit
+                    </LoadingButton>
+                  </Box>
+                )}
               </>
             )}
-
-       {/* Question 14 - when */}
-{currentQuestion === 13 && (
-  <>
-    <Typography
-      sx={{
-        mb: 2,
-        fontWeight: "500",
-        fontSize: "1.3rem",
-        letterSpacing: "0.03em",
-        textAlign: "left",
-        width: { xs: "300px", sm: "400px" },
-      }}
-    >
-      <span style={{ color: "#0445AF", marginRight: "5px" }}>
-        14.
-      </span>
-      When would you ideally like to start?
-    </Typography>
-    <RadioGroup
-      sx={{ width: { xs: "300px", sm: "400px" }, gap: 1.5 }}
-      value={answers[currentQuestion] || ""}
-      onChange={handleRadioChange}
-      onKeyDown={handleKeyDown}
-    >
-      {["ASAP", "1–2 weeks", "Within a month", "Just exploring"].map(
-        (value) => (
-          <Sheet
-            key={value}
-            sx={{ p: 2, borderRadius: "sm", boxShadow: "sm" }}
-          >
-            <Radio
-              onClick={() => handleRadioClick(value)}
-              label={value}
-              overlay
-              disableIcon
-              value={value}
-            />
-          </Sheet>
-        )
-      )}
-    </RadioGroup>
-
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        width: { xs: "300px", sm: "400px" },
-      }}
-    >
-      {required ? (
-        <Box
-          sx={{
-            backgroundColor: "#F7E6E5",
-            color: "#bc1616",
-            p: "0.5rem",
-            mt: "0.5rem",
-            mb: "-1rem",
-            borderRadius: "0.2rem",
-            width: "9rem",
-            textAlign: "center",
-            display: "flex",
-            gap: "0.2rem",
-          }}
-        >
-          <WarningRoundedIcon style={{ fontSize: "0.98rem" }} />
-          <Typography sx={{ fontSize: "0.8rem" }}>
-            Please fill this in
-          </Typography>
-        </Box>
-      ) : (
-        <Box sx={{ height: "2rem" }}></Box>
-      )}
-    </Box>
-
-    {/*SUBMIT BUTTON */}
-    {currentQuestion === 13 && !isMobile && (
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          mt: "1.5rem",
-        }}
-      >
-        <LoadingButton
-          size="small"
-          onClick={handleSubmit}
-          loading={loading}
-          loadingPosition="end"
-          variant="contained"
-          sx={{
-            width: "7rem",
-            backgroundColor: (theme) =>
-              loading ? "#E0E0E0" : "#0544AF",
-          }}
-        >
-          Submit
-        </LoadingButton>
-      </Box>
-    )}
-  </>
-)}
-
-            
-
-
           </Box>
         </CSSTransition>
       </TransitionGroup>
