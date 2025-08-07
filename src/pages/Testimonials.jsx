@@ -77,10 +77,10 @@ function VideoWithSkeleton() {
             <Typography
               sx={{
                 fontStyle: "italic",
-                fontSize: "1.2rem",
+                fontSize: {xs:"0.8rem", md:"1rem"},
                 color: "#333",
                 position: "relative",
-                paddingLeft: "2.5rem",
+                paddingLeft: {xs:"1.5rem", md:"2rem"},
               }}
             >
               <FormatQuoteIcon
@@ -88,7 +88,7 @@ function VideoWithSkeleton() {
                   position: "absolute",
                   left: "0",
                   top: "0",
-                  fontSize: "2rem",
+                fontSize: {xs:"1rem", md:"1.5rem"},
                   color: "#ccc",
                 }}
               />
@@ -111,7 +111,7 @@ function VideoWithSkeleton() {
               <Typography
                 sx={{
                   fontWeight: "600",
-                  fontSize: "1rem",
+                fontSize: {xs:"0.8rem", md:"1rem"},
                   color: "#555",
                 }}
               >
@@ -123,7 +123,7 @@ function VideoWithSkeleton() {
                 rel="noopener noreferrer"
                 sx={{
                   fontWeight: "400",
-                  fontSize: "0.9rem",
+                fontSize: {xs:"0.75rem", md:"0.9rem"},
                   color: "#007bff",
                   textDecoration: "none",
                   "&:hover": {
@@ -173,10 +173,10 @@ function VideoWithSkeleton() {
             <Typography
               sx={{
                 fontStyle: "italic",
-                fontSize: "1.2rem",
+                fontSize: {xs:"0.8rem", md:"1rem"},
                 color: "#333",
                 position: "relative",
-                paddingLeft: "2.5rem",
+                paddingLeft: {xs:"1.5rem", md:"2rem"},
               }}
             >
               <FormatQuoteIcon
@@ -184,7 +184,7 @@ function VideoWithSkeleton() {
                   position: "absolute",
                   left: "0",
                   top: "0",
-                  fontSize: "2rem",
+                fontSize: {xs:"1rem", md:"1.5rem"},
                   color: "#ccc",
                 }}
               />
@@ -205,7 +205,7 @@ function VideoWithSkeleton() {
               <Typography
                 sx={{
                   fontWeight: "600",
-                  fontSize: "1rem",
+                fontSize: {xs:"0.8rem", md:"1rem"},
                   color: "#555",
                 }}
               >
@@ -217,7 +217,7 @@ function VideoWithSkeleton() {
                 rel="noopener noreferrer"
                 sx={{
                   fontWeight: "400",
-                  fontSize: "0.9rem",
+                fontSize: {xs:"0.75rem", md:"0.9rem"},
                   color: "#007bff",
                   textDecoration: "none",
                   "&:hover": {
@@ -265,10 +265,10 @@ function VideoWithSkeleton() {
             <Typography
               sx={{
                 fontStyle: "italic",
-                fontSize: "1.2rem",
+                fontSize: {xs:"0.8rem", md:"1rem"},
                 color: "#333",
                 position: "relative",
-                paddingLeft: "2.5rem",
+                paddingLeft: {xs:"1.5rem", md:"2rem"},
               }}
             >
               <FormatQuoteIcon
@@ -276,7 +276,7 @@ function VideoWithSkeleton() {
                   position: "absolute",
                   left: "0",
                   top: "0",
-                  fontSize: "2rem",
+                fontSize: {xs:"1rem", md:"1.5rem"},
                   color: "#ccc",
                 }}
               />
@@ -296,7 +296,7 @@ function VideoWithSkeleton() {
               <Typography
                 sx={{
                   fontWeight: "600",
-                  fontSize: "1rem",
+                fontSize: {xs:"0.8rem", md:"1rem"},
                   color: "#555",
                 }}
               >
@@ -308,7 +308,7 @@ function VideoWithSkeleton() {
                 rel="noopener noreferrer"
                 sx={{
                   fontWeight: "400",
-                  fontSize: "0.9rem",
+                fontSize: {xs:"0.75rem", md:"0.9rem"},
                   color: "#007bff",
                   textDecoration: "none",
                   "&:hover": {
