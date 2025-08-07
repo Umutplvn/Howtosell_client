@@ -39,7 +39,7 @@ function VideoWithSkeleton() {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          marginTop: "1rem",
+          marginTop: "2rem",
         }}
       >
         {/* VIDEO1 */}
@@ -50,7 +50,30 @@ function VideoWithSkeleton() {
             marginBottom: "3rem",
           }}
         >
-          <Box>
+
+          {!loaded1 && (
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width="100%"
+              height={"350px"}
+            />
+          )}
+          <video
+            src="https://www.dl.dropboxusercontent.com/scl/fi/d8cunzqt190lqtvlmface/video1103012576.mov?rlkey=he07g37guw87f5n6wz2h0pisg&st=0evie6ft"
+            controls
+            onLoadedData={() => setLoaded1(true)}
+            onPlay={() => handlePlay(videoRef1)}
+            ref={videoRef1} // Referansı atama
+            style={{
+              display: loaded1 ? "block" : "none",
+              width: "100%",
+              borderRadius: "0.4rem",
+            }}
+          />
+                    <Box 
+                    sx={{marginTop:"2rem"}}
+                    >
             <Typography
               sx={{
                 fontStyle: "italic",
@@ -113,26 +136,6 @@ function VideoWithSkeleton() {
             </Box>
           </Box>
           
-          {!loaded1 && (
-            <Skeleton
-              variant="rectangular"
-              animation="wave"
-              width="100%"
-              height={"350px"}
-            />
-          )}
-          <video
-            src="https://www.dl.dropboxusercontent.com/scl/fi/d8cunzqt190lqtvlmface/video1103012576.mov?rlkey=he07g37guw87f5n6wz2h0pisg&st=0evie6ft"
-            controls
-            onLoadedData={() => setLoaded1(true)}
-            onPlay={() => handlePlay(videoRef1)}
-            ref={videoRef1} // Referansı atama
-            style={{
-              display: loaded1 ? "block" : "none",
-              width: "100%",
-              borderRadius: "0.4rem",
-            }}
-          />
         </Box>
 
         {/* VIDEO2 */}
@@ -141,10 +144,32 @@ function VideoWithSkeleton() {
             width: "100%",
             maxWidth: "720px",
             marginBottom: "3rem",
-            marginTop: "3rem",
+            marginTop: "1rem",
           }}
         >
-          <Box>
+       
+          {!loaded2 && (
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width="100%"
+              height={"350px"}
+            />
+          )}
+          <video
+            src="https://www.dl.dropboxusercontent.com/scl/fi/mu9jbo058rvinnyxfcwp3/Darius-Testimonial.mov?rlkey=7jvpa71b516gcedepcobm34hg&st=jpjvl2cs"
+            controls
+            onLoadedData={() => setLoaded2(true)}
+            onPlay={() => handlePlay(videoRef2)}
+            ref={videoRef2} // Referansı atama
+            style={{
+              display: loaded2 ? "block" : "none",
+              width: "100%",
+              borderRadius: "0.4rem",
+            }}
+          />
+
+             <Box sx={{marginTop:"2rem"}}>
             <Typography
               sx={{
                 fontStyle: "italic",
@@ -204,26 +229,6 @@ function VideoWithSkeleton() {
               </Link>
             </Box>
           </Box>
-          {!loaded2 && (
-            <Skeleton
-              variant="rectangular"
-              animation="wave"
-              width="100%"
-              height={"350px"}
-            />
-          )}
-          <video
-            src="https://www.dl.dropboxusercontent.com/scl/fi/mu9jbo058rvinnyxfcwp3/Darius-Testimonial.mov?rlkey=7jvpa71b516gcedepcobm34hg&st=jpjvl2cs"
-            controls
-            onLoadedData={() => setLoaded2(true)}
-            onPlay={() => handlePlay(videoRef2)}
-            ref={videoRef2} // Referansı atama
-            style={{
-              display: loaded2 ? "block" : "none",
-              width: "100%",
-              borderRadius: "0.4rem",
-            }}
-          />
         </Box>
 
         {/* VIDEO3 */}
@@ -232,10 +237,31 @@ function VideoWithSkeleton() {
             width: "100%",
             maxWidth: "720px",
             marginBottom: "3rem",
-            marginTop: "3rem",
+            marginTop: "1rem",
           }}
         >
-          <Box>
+        
+          {!loaded3 && (
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width="100%"
+              height={"350px"}
+            />
+          )}
+          <video
+            src="https://www.dl.dropboxusercontent.com/scl/fi/47431xmakqezozfdtvmwm/video6109995811.mov?rlkey=mikjhu6kjp427o62eydsmd99h&st=rl7ax9ch"
+            controls
+            onLoadedData={() => setLoaded3(true)}
+            onPlay={() => handlePlay(videoRef3)}
+            ref={videoRef3} // Referansı atama
+            style={{
+              display: loaded3 ? "block" : "none",
+              width: "100%",
+              borderRadius: "0.4rem",
+            }}
+          />
+            <Box sx={{marginTop:"2rem"}}>
             <Typography
               sx={{
                 fontStyle: "italic",
@@ -294,26 +320,6 @@ function VideoWithSkeleton() {
               </Link>
             </Box>
           </Box>
-          {!loaded3 && (
-            <Skeleton
-              variant="rectangular"
-              animation="wave"
-              width="100%"
-              height={"350px"}
-            />
-          )}
-          <video
-            src="https://www.dl.dropboxusercontent.com/scl/fi/47431xmakqezozfdtvmwm/video6109995811.mov?rlkey=mikjhu6kjp427o62eydsmd99h&st=rl7ax9ch"
-            controls
-            onLoadedData={() => setLoaded3(true)}
-            onPlay={() => handlePlay(videoRef3)}
-            ref={videoRef3} // Referansı atama
-            style={{
-              display: loaded3 ? "block" : "none",
-              width: "100%",
-              borderRadius: "0.4rem",
-            }}
-          />
         </Box>
 
         {/* Apply For Free Consultation Button */}

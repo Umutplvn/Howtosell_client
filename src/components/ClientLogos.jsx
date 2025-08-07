@@ -60,7 +60,6 @@ const ClientLogos = () => {
         position: 'relative',
         width: '100%',
         marginTop: '3rem',
-        padding: '1rem 2.5rem',
         overflow: 'hidden',
       }}
     >

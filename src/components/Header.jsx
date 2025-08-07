@@ -32,7 +32,7 @@ const Header = () => {
       sx={{
         fontFamily: "Inter",
         fontOpticalSizing: "auto",
-        fontWeight: 850,
+        fontWeight: 600,
         fontStyle: "normal",
         fontSize: { xs: "1rem", sm: "1.4rem" },
         cursor: "pointer",
@@ -47,7 +47,7 @@ const Header = () => {
       sx={{
         fontFamily: "Inter",
         fontOpticalSizing: "auto",
-        fontWeight: 850,
+        fontWeight: 600,
         fontStyle: "normal",
         fontSize: { xs: "1rem", sm: "1.4rem" },
         cursor: "pointer",

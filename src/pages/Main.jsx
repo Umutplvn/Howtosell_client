@@ -61,7 +61,7 @@ const Main = () => {
                     maxWidth: "600px",
                   }}
                 >
-                  We help{" "}
+                  I help{" "}
                   <Box
                     sx={{
                       position: "relative",
@@ -118,7 +118,22 @@ const Main = () => {
                     {" "}
                     Without{" "}
                   </Typography>
+                         <Typography
+                    sx={{
+                      fontFamily: "Inter",
+                      fontOpticalSizing: "auto",
+                      fontStyle: "normal",
+                      fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                      fontWeight: "600",
+                      textAlign: "center",
+                      whiteSpace: "nowrap",
+                      wordBreak: "keep-all",
+                    }}
+                  >
                   Pushy Tactics
+                  </Typography>{" "}
+
+
                 </Typography>
 
                 <Box
@@ -140,9 +155,7 @@ const Main = () => {
                       maxWidth: "650px",
                     }}
                   >
-                    Drive sales growth with strategies that elevate your team,
-                    delight your clients, and make your life easier. No
-                    pressure, pure results.
+                    Boost your team’s performance, win more deals, and simplify your sales process without being pushy.
                   </Typography>
                 </Box>
               </Box>

@@ -244,6 +244,9 @@ const FormQuestions = () => {
             {/* Question 1 - Name */}
             {currentQuestion === 0 && (
               <>
+ <Typography sx={{marginBottom:"1rem", fontSize:"0.9rem", textAlign:"left",  color: "#0445AF",   width: { xs: "300px", sm: "500px" }}}>
+                Let’s see if this is a good fit. Takes less than 2 minutes to complete.
+              </Typography>
                 <Typography
                   sx={{
                     mb: 2,
@@ -1373,36 +1376,6 @@ const FormQuestions = () => {
                   </span>
                   What makes now the right time to fix this?{" "}
                 </Typography>
-
-    
-                         <Typography
-                  sx={{
-                    width: {
-                      xs: "300px",
-                      sm: "500px",
-                      mt: "-0.5rem",
-                      fontSize: "0.85rem",
-                    },
-                  }}
-                >
-              (Optional but powerful) 
-
-                </Typography>
-
-                         <Typography
-                  sx={{
-                    width: {
-                      xs: "300px",
-                      sm: "500px",
-                      mt: "-0.5rem",
-                      fontSize: "0.85rem",
-                    },
-                  }}
-                >
-              Creates urgency. Lets you spot hot leads.
-
-                </Typography>
-
 
                 <TextField
                   autoFocus
