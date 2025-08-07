@@ -11,12 +11,10 @@ function VideoWithSkeleton() {
   const [loaded3, setLoaded3] = useState(false);
   const navigate = useNavigate();
 
-  // Video referanslarını oluşturma
   const videoRef1 = useRef(null);
   const videoRef2 = useRef(null);
   const videoRef3 = useRef(null);
 
-  // Bir video oynatıldığında diğerlerini durduran fonksiyon
   const handlePlay = (playingVideoRef) => {
     if (playingVideoRef.current !== videoRef1.current) {
       videoRef1.current.pause();
