@@ -3,7 +3,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import underline1 from "../assets/underline1.svg";
-import underlineBlack from "../assets/underlineBlack.svg";
 import dotBg from "../assets/dot-pattern.svg";
 import Vector from "../assets/Vector.svg";
 import Header from "../components/Header";
@@ -56,12 +55,11 @@ const Main = () => {
                     fontOpticalSizing: "auto",
                     fontStyle: "normal",
                     fontSize: { xs: "1.5rem", sm: "1.8rem" },
-                    fontWeight: "600",
                     display: "block",
                     maxWidth: "600px",
                   }}
                 >
-                  I help{" "}
+                  Helping{" "}
                   <Box
                     sx={{
                       position: "relative",
@@ -77,7 +75,6 @@ const Main = () => {
                         fontOpticalSizing: "auto",
                         fontStyle: "normal",
                         fontSize: { xs: "1.5rem", sm: "1.8rem" },
-                        fontWeight: "600",
                         padding: "0.2rem",
                         display: "inline-block",
                       }}
@@ -104,36 +101,22 @@ const Main = () => {
                     Double Their Sales
                   </Typography>{" "}
                   <Typography
-                    component={"strong"}
                     sx={{
                       fontFamily: "Inter",
                       fontOpticalSizing: "auto",
                       fontStyle: "normal",
                       fontSize: { xs: "1.5rem", sm: "1.8rem" },
-                      fontWeight: "800",
-                      textAlign: "center",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    {" "}
-                    Without{" "}
-                  </Typography>
-                         <Typography
-                    sx={{
-                      fontFamily: "Inter",
-                      fontOpticalSizing: "auto",
-                      fontStyle: "normal",
-                      fontSize: { xs: "1.5rem", sm: "1.8rem" },
-                      fontWeight: "600",
                       textAlign: "center",
                       whiteSpace: "nowrap",
                       wordBreak: "keep-all",
                     }}
                   >
-                  Pushy Tactics
+                    <strong style={{ fontWeight: "800", fontStyle: "italic" }}>
+                      {" "}
+                      Without{" "}
+                    </strong>
+                    Pushy Tactics
                   </Typography>{" "}
-
-
                 </Typography>
 
                 <Box
@@ -149,19 +132,20 @@ const Main = () => {
                       fontStyle: "normal",
                       fontSize: "1.1rem",
                       cursor: "pointer",
-                      fontWeight: "300",
                       textAlign: "center",
                       mt: "2rem",
                       maxWidth: "650px",
                     }}
                   >
-                    Boost your team’s performance, win more deals, and simplify your sales process without being pushy.
+                    Boost your team’s performance, win more deals, and simplify
+                    your sales process{" "}
+                    <Box component="span" sx={{ whiteSpace: "nowrap" }}>
+                      without being pushy.
+                    </Box>
                   </Typography>
                 </Box>
               </Box>
             </section>
-
-            {/* Colorful Geo Shapes */}
             <section>
               <Box
                 sx={{
@@ -455,14 +439,11 @@ const Main = () => {
                     </Typography>
                     Looking to elevate their skills and close more deals.
                   </Typography>
-
                 </Box>
-                        
-              {/* Client Logos */}
-              <ClientLogos/>
-              
+
+                {/* Client Logos */}
+                <ClientLogos />
               </Box>
-      
             </section>
 
             {/* What People Are Saying?  */}
