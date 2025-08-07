@@ -9,6 +9,7 @@ import Vector from "../assets/Vector.svg";
 import Header from "../components/Header";
 import commentDesktop from "../assets/clientComments/desktopClient.png";
 import commentMobile from "../assets/clientComments/mobileClient.jpg";
+import ClientLogos from "../components/ClientLogos";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -441,8 +442,14 @@ const Main = () => {
                     </Typography>
                     Looking to elevate their skills and close more deals.
                   </Typography>
+
                 </Box>
+                        
+              {/* Client Logos */}
+              <ClientLogos/>
+              
               </Box>
+      
             </section>
 
             {/* What People Are Saying?  */}
