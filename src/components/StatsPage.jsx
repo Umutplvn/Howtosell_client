@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import useDataCall from "../hooks/useDataCall";
-import { useSelector } from 'react-redux';
-import { Box, Typography, Button} from '@mui/material';
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
-import dayjs from 'dayjs';
+import { useSelector } from "react-redux";
+import { Box, Typography, Button } from "@mui/material";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
+import dayjs from "dayjs";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import * as XLSX from "xlsx";
@@ -19,34 +27,49 @@ const StatsPage = () => {
   const [readOpen, setReadOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [timeframe, setTimeframe] = useState("daily"); // Yeni durum
 
   useEffect(() => {
     listClients();
   }, []);
 
-  const groupByDate = (clients) => {
+  // Güncellenmiş veri gruplama fonksiyonu
+  const groupByDate = (clients, period) => {
     const groupedData = {};
 
-    clients.forEach(client => {
-      const date = dayjs(client.createdAt).format('DD.MM.YY');
-      if (!groupedData[date]) {
-        groupedData[date] = 0;
+    clients.forEach((client) => {
+      let dateKey;
+      if (period === "weekly") {
+        dateKey = dayjs(client.createdAt).startOf("week").format("DD.MM.YY");
+      } else if (period === "monthly") {
+        dateKey = dayjs(client.createdAt).startOf("month").format("MM.YY");
+      } else {
+        dateKey = dayjs(client.createdAt).format("DD.MM.YY");
       }
-      groupedData[date]++;
+      
+      if (!groupedData[dateKey]) {
+        groupedData[dateKey] = 0;
+      }
+      groupedData[dateKey]++;
     });
-    return Object.entries(groupedData).map(([date, count]) => ({ date, count }));
+
+    return Object.entries(groupedData).map(([date, count]) => ({
+      date,
+      count,
+    }));
   };
 
-    const handleClientOpen = () => {
+  const handleClientOpen = () => {
     setClientOpen(true);
   };
-
 
   const handleClose = () => {
     setOpen(false);
     setSelectedUser(null);
   };
-  const data = groupByDate(clients);
+  
+  // timefame durumuna göre veriyi dinamik olarak al
+  const data = groupByDate(clients, timeframe);
 
   const filterUsers = clients?.filter(
     (item) =>
@@ -56,7 +79,7 @@ const StatsPage = () => {
       item?.phone.includes(search)
   );
 
-    function formatDate(isoString) {
+  function formatDate(isoString) {
     const date = new Date(isoString);
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -68,30 +91,27 @@ const StatsPage = () => {
     return formattedDate;
   }
 
-    const formatName = (name) => {
+  const formatName = (name) => {
     if (!name) return "";
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   };
 
-
-
-    const handleExport = () => {
+  const handleExport = () => {
     const data = filterUsers?.map((user) => ({
       "First Name": formatName(user.name),
       "Last Name": user.lastName,
       Email: user.email,
       "Phone Number": user.phone,
+      "Instagram Handle": user.insta,
       "Company Name": user.companyName,
       "Company Website": user.companyWebsite,
-      "How Large Is Your Sales Team?": user.teamMembers,
-      "What outcome would make sales training a massive win for you?":
-        user.goal,
-      "What Are the Biggest Challenges You or Your Sales Team Is Facing?":
-        user.challenges,
-      "If you were confident that our sales training would help your team achieve these goals, what investment range would you feel comfortable with?":
-        user.directInvest,
-      "When Are You Looking to Implement Sales Training?": user.when,
-      "Preferred Mode of Contact": user.contactMode,
+      Role: user.role,
+      "Team Size": user.teamSize,
+      Goal: user.goal,
+      Challenge: user.challenge,
+      Urgency: user.urgency,
+      Investment: user.investment,
+      "When to Start": user.when,
       "Created At": formatDate(user.createdAt),
       Connected: user.connected,
       "Connected By": user.connectedBy,
@@ -104,87 +124,148 @@ const StatsPage = () => {
   };
 
   return (
-    <Box sx={{width:"100%", maxHeight:"30rem", padding:"0 2rem"}}>
-      <Typography sx={{fontSize:"1.5rem", fontWeight:"700", pb:"2rem", m:"auto"}}>Client Creation Statistics</Typography>
- <ResponsiveContainer width="100%" height={400}>
-  <LineChart data={data}>
-    <CartesianGrid strokeDasharray="3 3" />
-    <XAxis 
-  dataKey="date"
-  tick={{
-    fontSize: 10,
-    angle: -45,
-    dy: 10,
-  }}
-/>
-    <YAxis />
-    <Tooltip />
-    <Line type="monotone" dataKey="count" stroke="#8884d8" />
-  </LineChart>
-</ResponsiveContainer>
+    <Box sx={{ width: "100%", maxHeight: "30rem", padding: "0 2rem" }}>
+      <Typography
+        sx={{ fontSize: "1.5rem", fontWeight: "700", pb: "2rem", m: "auto" }}
+      >
+        Client Creation Statistics
+      </Typography>
 
+<Box sx={{ display: "flex", justifyContent: "center", gap: "1rem", mb: "1rem" }}>
+  <Button
+    variant="text"
+    onClick={() => setTimeframe("daily")}
+    sx={{
+      textDecoration: timeframe === "daily" ? "underline" : "none",
+      fontWeight: timeframe === "daily" ? "bold" : "normal",
+      fontSize: "0.8rem",
+              fontFamily: "Inter",
 
-       <Box
-                sx={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "1rem",
-                  paddingTop: "2rem",
-                }}
-              >
-                <Button
-                  type="submit"
-                  variant="contained"
-                  sx={{
-                    mt: 4,
-                    mb: 5,
-                    textAlign: "center",
-                    backgroundColor: "#F2F2F2",
-                    color: "#494b56",
-                    borderRadius: "0.7rem",
-                    width: "8rem",
-                    transition: "0.4s",
-                    fontSize:"0.75rem",
-      
-                    "&:hover": {
-                      backgroundColor: "#000000",
-                      color: "white",
-                    },
-                  }}
-                  onClick={handleClientOpen}
-                >
-                  <AddCircleIcon sx={{ mr: "0.5rem" }} />
-                  CREATE
-                </Button>
-      
-                <Button
-                  type="submit"
-                  variant="contained"
-                  sx={{
-                    mt: 4,
-                    mb: 5,
-                    textAlign: "center",
-                    backgroundColor: "#F2F2F2",
-                    color: "#494b56",
-                    borderRadius: "0.7rem",
-                    width: "8rem",
-                    transition: "0.4s",
-                          fontSize:"0.75rem",
+      color: "black",
+      "&:hover": {
+        backgroundColor: "transparent",
+        textDecoration: "underline",
+      },
+    }}
+  >
+    Daily
+  </Button>
+  <Button
+    variant="text"
+    onClick={() => setTimeframe("weekly")}
+    sx={{
+      textDecoration: timeframe === "weekly" ? "underline" : "none",
+      fontWeight: timeframe === "weekly" ? "bold" : "normal",
+      fontSize: "0.8rem",
+              fontFamily: "Inter",
 
-                    "&:hover": {
-                      backgroundColor: "#000000",
-                      color: "white",
-                    },
-                  }}
-                  onClick={handleExport}
-                >
-                  <CloudDownloadIcon sx={{ mr: "0.5rem" }} />
-                  EXPORT
-                </Button>
-              </Box>
+      color: "black",
+      "&:hover": {
+        backgroundColor: "transparent",
+        textDecoration: "underline",
+      },
+    }}
+  >
+    Weekly
+  </Button>
+  <Button
+    variant="text"
+    onClick={() => setTimeframe("monthly")}
+    sx={{
+      textDecoration: timeframe === "monthly" ? "underline" : "none",
+      fontWeight: timeframe === "monthly" ? "bold" : "normal",
+      fontSize: "0.8rem",
+              fontFamily: "Inter",
 
-              <NestedModal clientOpen={clientOpen} setClientOpen={setClientOpen} />
+      color: "black",
+      "&:hover": {
+        backgroundColor: "transparent",
+        textDecoration: "underline",
+      },
+    }}
+  >
+    Monthly
+  </Button>
+</Box>
+
+      <ResponsiveContainer width="100%" height={400}>
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="date"
+            tick={{
+              fontSize: 10,
+              angle: -45,
+              dy: 10,
+            }}
+          />
+          <YAxis />
+          <Tooltip />
+          <Line type="monotone" dataKey="count" stroke="#8884d8" />
+        </LineChart>
+      </ResponsiveContainer>
+
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          gap: "1rem",
+          paddingTop: "2rem",
+        }}
+      >
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            mt: 4,
+            mb: 5,
+            textAlign: "center",
+            backgroundColor: "#F2F2F2",
+            color: "#494b56",
+            borderRadius: "0.7rem",
+            width: "8rem",
+            transition: "0.4s",
+            fontSize: "0.75rem",
+
+            "&:hover": {
+              backgroundColor: "#000000",
+              color: "white",
+            },
+          }}
+          onClick={handleClientOpen}
+        >
+          <AddCircleIcon sx={{ mr: "0.5rem" }} />
+          CREATE
+        </Button>
+
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            mt: 4,
+            mb: 5,
+            textAlign: "center",
+            backgroundColor: "#F2F2F2",
+            color: "#494b56",
+            borderRadius: "0.7rem",
+            width: "8rem",
+            transition: "0.4s",
+            fontSize: "0.75rem",
+
+            "&:hover": {
+              backgroundColor: "#000000",
+              color: "white",
+            },
+          }}
+          onClick={handleExport}
+        >
+          <CloudDownloadIcon sx={{ mr: "0.5rem" }} />
+          EXPORT
+        </Button>
+      </Box>
+
+      <NestedModal clientOpen={clientOpen} setClientOpen={setClientOpen} />
       <ReadNestedModal
         readOpen={readOpen}
         setReadOpen={setReadOpen}

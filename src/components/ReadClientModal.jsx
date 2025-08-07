@@ -4,7 +4,6 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -27,6 +26,10 @@ export default function ReadNestedModal({ readOpen, setReadOpen, data }) {
 
   const formatName = (name) => {
     if (!name) return "";
+    // email'i formatlamaması için kontrol ekledim
+    if (name.includes('@')) {
+      return name;
+    }
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   };
 
@@ -46,156 +49,114 @@ export default function ReadNestedModal({ readOpen, setReadOpen, data }) {
             borderRadius: "1rem",
           }}
         >
-          {/* Q1 */}
+          {/* First Name */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              1.First Name
-            </Typography>
-
+            <Typography sx={{ fontWeight: "700" }}>First Name</Typography>
             <Typography sx={{ color: "#0445AF" }}>{formatName(data?.name)}</Typography>
           </Box>
 
-          {/* Q2 */}
+          {/* Last Name */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              2.Last Name
-            </Typography>
+            <Typography sx={{ fontWeight: "700" }}>Last Name</Typography>
             <Typography sx={{ color: "#0445AF" }}>
               {formatName(data?.lastName)}
             </Typography>
           </Box>
 
-          {/* Q3 */}
+          {/* Email */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              3.Email
-            </Typography>
+            <Typography sx={{ fontWeight: "700" }}>Email</Typography>
             <Typography sx={{ color: "#0445AF" }}>
-              {formatName(data?.email)}
+              {data?.email}
             </Typography>
           </Box>
 
-          {/* Q4 */}
+          {/* Phone Number */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              4.Phone Number
+            <Typography sx={{ fontWeight: "700" }}>
+              Phone Number
             </Typography>
             <Typography sx={{ color: "#0445AF" }}>{data?.phone}</Typography>
           </Box>
-          {/* Q5 */}
+
+          {/* Instagram Handle */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              5.Company Name
+            <Typography sx={{ fontWeight: "700" }}>
+              Instagram Handle
             </Typography>
+            <Typography sx={{ color: "#0445AF" }}>{data?.insta}</Typography>
+          </Box>
+          
+          {/* Company Name */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>Company Name</Typography>
             <Typography sx={{ color: "#0445AF" }}>{data?.companyName}</Typography>
           </Box>
-          {/* Q6 */}
+
+          {/* Company Website */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              6.Company Website
+            <Typography sx={{ fontWeight: "700" }}>
+              Company Website
             </Typography>
             <Typography sx={{ color: "#0445AF" }}>{data?.companyWebsite}</Typography>
           </Box>
-          {/* Q7 */}
-          <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              7.How Large Is Your Sales Team?
-            </Typography>
 
+          {/* Role */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>
+              Which best describes you?
+            </Typography>
+            <Typography sx={{ color: "#0445AF" }}>{data?.role}</Typography>
+          </Box>
+
+          {/* Team Size */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>
+              How many reps are on your sales team?
+            </Typography>
             <Typography sx={{ color: "#0445AF" }}>
-              {data?.teamMembers}
+              {data?.teamSize}
             </Typography>
           </Box>
-          {/* Q8 */}
+
+          {/* Goal */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              8.What outcome would make sales training a massive win for you?
+            <Typography sx={{ fontWeight: "700" }}>
+              What are you aiming to achieve with sales training?
             </Typography>
             <Typography sx={{ color: "#0445AF" }}>{data?.goal}</Typography>
           </Box>
 
-          {/* Q9 */}
+          {/* Challenge */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              9.What Are the Biggest Challenges You or Your Sales Team Is Facing? 
+            <Typography sx={{ fontWeight: "700" }}>
+              What’s the biggest sales challenge you’re facing right now?
             </Typography>
-            <Typography sx={{ color: "#0445AF" }}>{data?.challenges}</Typography>
+            <Typography sx={{ color: "#0445AF" }}>{data?.challenge}</Typography>
+          </Box>
+          
+          {/* Urgency */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>
+              What makes now the right time to fix this?
+            </Typography>
+            <Typography sx={{ color: "#0445AF" }}>{data?.urgency}</Typography>
           </Box>
 
-          {/* Q10 */}
+          {/* Investment */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              10.If you were confident that our sales training would help your team achieve these goals, what investment range would you feel comfortable with?
+            <Typography sx={{ fontWeight: "700" }}>
+              Investment Range
             </Typography>
-            <Typography sx={{ color: "#0445AF" }}>{data?.directInvest}</Typography>
+            <Typography sx={{ color: "#0445AF" }}>{data?.investment}</Typography>
           </Box>
 
-          {/* Q11 */}
+          {/* When */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              11.When Are You Looking to Implement Sales Training?
-
+            <Typography sx={{ fontWeight: "700" }}>
+              When would you ideally like to start?
             </Typography>
             <Typography sx={{ color: "#0445AF" }}>{data?.when}</Typography>
-          </Box>
-
-          {/* Q12 */}
-          <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              12.Preferred Mode of Contact
-            </Typography>
-
-            <Typography sx={{ color: "#0445AF" }}>
-              {data?.contactMode}
-            </Typography>
           </Box>
 
           <Box

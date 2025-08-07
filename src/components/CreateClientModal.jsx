@@ -3,8 +3,6 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
-import NativeSelect from "@mui/material/NativeSelect";
-import FormControl from "@mui/material/FormControl";
 import { useState } from "react";
 import useDataCall from "../hooks/useDataCall";
 import { toast } from "react-hot-toast";
@@ -40,18 +38,20 @@ export default function NestedModal({ clientOpen, setClientOpen }) {
     lastName: "",
     email: "",
     phone: "",
+    insta: "",
     companyName: "",
     companyWebsite: "",
-    income: "",
+    role: "",
+    teamSize: "",
     goal: "",
-    challenges: "",
-    directInvest: "",
+    challenge: "",
+    urgency: "",
+    investment: "",
     when: "",
-    contactMode: "",
   });
 
   const handleSubmit = () => {
-    if (!info.name || !info.email || !info.phone ) {
+    if (!info.name || !info.email || !info.phone) {
       toast.error("Please fill required fields");
     } else {
       createClient(info);
@@ -60,14 +60,16 @@ export default function NestedModal({ clientOpen, setClientOpen }) {
         lastName: "",
         email: "",
         phone: "",
+        insta: "",
         companyName: "",
         companyWebsite: "",
-        income: "",
+        role: "",
+        teamSize: "",
         goal: "",
-        challenges: "",
-        directInvest: "",
+        challenge: "",
+        urgency: "",
+        investment: "",
         when: "",
-        contactMode: "",
       });
       handleClientClose();
     }
@@ -89,300 +91,210 @@ export default function NestedModal({ clientOpen, setClientOpen }) {
             borderRadius: "1rem",
           }}
         >
-          {/* Q1 */}
+          {/* First Name */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              1.First Name*
-            </Typography>
+            <Typography sx={{ fontWeight: "700" }}>First Name*</Typography>
             <TextField
               required
               variant="standard"
               placeholder="Jane"
-              sx={{
-                width: "100%",
-              }}
+              sx={{ width: "100%" }}
               name="name"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
+              value={info.name}
             />
           </Box>
 
-          {/* Q2 */}
+          {/* Last Name */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              2.Last Name
-            </Typography>
+            <Typography sx={{ fontWeight: "700" }}>Last Name</Typography>
             <TextField
               placeholder="Smith"
               variant="standard"
-              sx={{
-                width: "100%",
-              }}
+              sx={{ width: "100%" }}
               name="lastName"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
+              value={info.lastName}
             />
           </Box>
 
-          {/* Q3 */}
+          {/* Email */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              3.Email*
-            </Typography>
+            <Typography sx={{ fontWeight: "700" }}>Email*</Typography>
             <TextField
-            required
+              required
               variant="standard"
               placeholder="name@example.com"
-
-              sx={{
-                width: "100%",
-              }}
+              sx={{ width: "100%" }}
               name="email"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
+              value={info.email}
             />
           </Box>
 
-          {/* Q4 */}
+          {/* Phone Number */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              4.Phone Number*
+            <Typography sx={{ fontWeight: "700" }}>
+              Phone Number (WhatsApp preferred for contact)*
             </Typography>
             <TextField
-            required
+              required
               variant="standard"
               placeholder="+90 (541) 223 88 88"
-              sx={{
-                width: "100%",
-              }}
+              sx={{ width: "100%" }}
               name="phone"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
+              value={info.phone}
             />
           </Box>
 
-          {/* Q5 */}
+          {/* Instagram Handle */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              5.Company Name
+            <Typography sx={{ fontWeight: "700" }}>
+              Instagram Handle (optional, helps us find you faster)
             </Typography>
             <TextField
-            placeholder="Please type..."
               variant="standard"
-              sx={{
-                width: "100%",
-              }}
+              placeholder="@username"
+              sx={{ width: "100%" }}
+              name="insta"
+              onChange={handleChange}
+              value={info.insta}
+            />
+          </Box>
+
+          {/* Company Name */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>Company Name</Typography>
+            <TextField
+              placeholder="Please type..."
+              variant="standard"
+              sx={{ width: "100%" }}
               name="companyName"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
+              value={info.companyName}
             />
           </Box>
 
-          {/* Q6 */}
+          {/* Company Website */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              6.Company Website
+            <Typography sx={{ fontWeight: "700" }}>
+              Company Website (if you have one)
             </Typography>
             <TextField
-                        placeholder="Please type..."
+              placeholder="Please type..."
               variant="standard"
-              sx={{
-                width: "100%",
-              }}
+              sx={{ width: "100%" }}
               name="companyWebsite"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
+              value={info.companyWebsite}
             />
           </Box>
 
-          {/* Q7 */}
+          {/* Which best describes you? */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              7.How large is your sales team?
-            </Typography>
-
-            <FormControl sx={{ width: "100%" }}>
-              <NativeSelect
-                onChange={(e) => handleChange(e)}
-                name="teamMembers"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Please Select
-                </option>
-
-                <option value={"Just Myself"}>Just Myself</option>
-                <option value={"2-5 Members"}>2-5 Members</option>
-                <option value={"6-10 Members"}>6-10 Members</option>
-                <option value={"11-20 Members"}>11-20 Members</option>
-                <option value={"21+ Members"}>21+ Members</option>
-              </NativeSelect>
-            </FormControl>
-          </Box>
-
-          {/* Q8 */}
-          <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              8.What outcome would make sales training a massive win for you?
-            </Typography>
-
-            <FormControl sx={{ width: "100%" }}>
-              <NativeSelect
-                onChange={(e) => handleChange(e)}
-                name="goal"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Please Select
-                </option>
-
-                <option value={"Increase sales revenue"}>
-                  Increase sales revenue
-                </option>
-                <option value={"Improve closing rates"}>
-                  Improve closing rates
-                </option>
-                <option value={"Enhance product knowledge"}>
-                  Enhance product knowledge
-                </option>
-                <option value={"Other"}>Other</option>
-              </NativeSelect>
-            </FormControl>
-          </Box>
-
-          {/* Q9 */}
-          <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              9.What Are the Biggest Challenges You or Your Sales Team Is
-              Facing?
+            <Typography sx={{ fontWeight: "700" }}>
+              Which best describes you?
             </Typography>
             <TextField
               variant="standard"
-              sx={{
-                width: "100%",
-              }}
-              name="challenges"
-              onChange={(e) => handleChange(e)}
+              placeholder="e.g., Entrepreneur / Business Owner"
+              sx={{ width: "100%" }}
+              name="role"
+              onChange={handleChange}
+              value={info.role}
             />
           </Box>
 
-          {/* Q10 */}
+          {/* How many reps are on your sales team? */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              10.If you were confident that our sales training would help your
-              team achieve these goals, what investment range would you feel
-              comfortable with?
+            <Typography sx={{ fontWeight: "700" }}>
+              How many reps are on your sales team (if any)?
             </Typography>
-
-            <FormControl sx={{ width: "100%" }}>
-              <NativeSelect
-                onChange={(e) => handleChange(e)}
-                name="directInvest"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Please Select
-                </option>
-
-                <option value={"Less than $5000"}>Less than $5000</option>
-                <option value={"$5000-$10,000"}>$5000-$10,000</option>
-                <option value={"10,000-$20,000"}>10,000-$20,000</option>
-                <option value={"Over $20,000"}>Over $20,000</option>
-              </NativeSelect>
-            </FormControl>
+            <TextField
+              variant="standard"
+              placeholder="e.g., Just Me, 2-5 people"
+              sx={{ width: "100%" }}
+              name="teamSize"
+              onChange={handleChange}
+              value={info.teamSize}
+            />
           </Box>
 
-          {/* Q11 */}
+          {/* What are you aiming to achieve with sales training? */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              11.When Are You Looking to Implement Sales Training?
+            <Typography sx={{ fontWeight: "700" }}>
+              What are you aiming to achieve with sales training?
             </Typography>
-
-            <FormControl sx={{ width: "100%" }}>
-              <NativeSelect
-                onChange={(e) => handleChange(e)}
-                name="when"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Please Select
-                </option>
-
-                <option value={"Immediately"}>Immediately</option>
-                <option value={"Within the next month"}>
-                  Within the next month
-                </option>
-                <option value={"In 2-3 months"}>In 2-3 months</option>
-                <option value={"Just exploring options"}>
-                  Just exploring options
-                </option>
-              </NativeSelect>
-            </FormControl>
+            <TextField
+              variant="standard"
+              placeholder="e.g., Increase sales revenue"
+              sx={{ width: "100%" }}
+              name="goal"
+              onChange={handleChange}
+              value={info.goal}
+            />
           </Box>
 
-          {/* Q11 */}
+          {/* What’s the biggest sales challenge you’re facing right now? */}
           <Box sx={{ mb: "1rem" }}>
-            <Typography
-              sx={{
-                fontWeight: "700",
-              }}
-            >
-              12.Preferred Mode of Contact
+            <Typography sx={{ fontWeight: "700" }}>
+              What’s the biggest sales challenge you’re facing right now?
             </Typography>
+            <TextField
+              variant="standard"
+              placeholder="e.g., Lead generation, closing deals"
+              sx={{ width: "100%" }}
+              name="challenge"
+              onChange={handleChange}
+              value={info.challenge}
+            />
+          </Box>
 
-            <FormControl sx={{ width: "100%" }}>
-              <NativeSelect
-                onChange={(e) => handleChange(e)}
-                name="contactMode"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Please Select
-                </option>
+          {/* What makes now the right time to fix this? */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>
+              What makes now the right time to fix this?
+            </Typography>
+            <TextField
+              variant="standard"
+              placeholder="e.g., Our targets are increasing"
+              sx={{ width: "100%" }}
+              name="urgency"
+              onChange={handleChange}
+              value={info.urgency}
+            />
+          </Box>
 
-                <option value={"Email"}>Email</option>
-                <option value={"Phone"}>Phone</option>
-                <option value={"WhatsApp"}>WhatsApp</option>
-              </NativeSelect>
-            </FormControl>
+          {/* What investment range would feel comfortable? */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>
+              If this could solve your exact problem, what investment range
+              would feel comfortable?
+            </Typography>
+            <TextField
+              variant="standard"
+              placeholder="e.g., €5,000–€10,000"
+              sx={{ width: "100%" }}
+              name="investment"
+              onChange={handleChange}
+              value={info.investment}
+            />
+          </Box>
+
+          {/* When would you ideally like to start? */}
+          <Box sx={{ mb: "1rem" }}>
+            <Typography sx={{ fontWeight: "700" }}>
+              When would you ideally like to start?
+            </Typography>
+            <TextField
+              variant="standard"
+              placeholder="e.g., Immediately, Within a month"
+              sx={{ width: "100%" }}
+              name="when"
+              onChange={handleChange}
+              value={info.when}
+            />
           </Box>
 
           <Box

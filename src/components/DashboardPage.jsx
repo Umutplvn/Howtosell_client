@@ -208,6 +208,9 @@ const Members = () => {
                   <Typography sx={cellStyle}>Phone Number</Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
+                  <Typography sx={cellStyle}>Instagram</Typography>
+                </TableCell>
+                <TableCell align="left" sx={stickyStyle}>
                   <Typography sx={cellStyle}>Company Name</Typography>
                 </TableCell>
                 <TableCell align="left" sx={stickyStyle}>
@@ -230,7 +233,7 @@ const Members = () => {
                   <Typography
                     sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
                   >
-                    How Large Is Your Sales Team?
+                    Role/Position
                   </Typography>
                 </TableCell>
 
@@ -252,8 +255,49 @@ const Members = () => {
                   <Typography
                     sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
                   >
-                    What outcome would make sales training a massive win for
-                    you?{" "}
+                    Team size
+                  </Typography>
+                </TableCell>
+
+                <TableCell
+                  align="left"
+                  sx={{
+                    position: "sticky",
+                    backgroundColor: "white",
+                    top: 0,
+                    minWidth: "150px",
+                    maxWidth: "150px",
+                    width: "150px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+                  >
+                    What are you aiming to achieve with sales training?
+                  </Typography>
+                </TableCell>
+
+                <TableCell
+                  align="left"
+                  sx={{
+                    position: "sticky",
+                    backgroundColor: "white",
+                    top: 0,
+                    minWidth: "150px",
+                    maxWidth: "150px",
+                    width: "150px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
+                  >
+                    What’s the biggest sales challenge you’re facing right now?
                   </Typography>
                 </TableCell>
 
@@ -275,52 +319,7 @@ const Members = () => {
                   <Typography
                     sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
                   >
-                    What Are the Biggest Challenges You or Your Sales Team Is
-                    Facing?{" "}
-                  </Typography>
-                </TableCell>
-
-                <TableCell
-                  align="left"
-                  sx={{
-                    position: "sticky",
-                    backgroundColor: "white",
-
-                    top: 0,
-                    minWidth: "150px",
-                    maxWidth: "150px",
-                    width: "150px",
-                    whiteSpace: "normal",
-                    wordBreak: "break-word",
-                    zIndex: 1,
-                  }}
-                >
-                  <Typography
-                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
-                  >
-                    What investment range would you feel comfortable with?
-                  </Typography>
-                </TableCell>
-
-                <TableCell
-                  align="left"
-                  sx={{
-                    position: "sticky",
-                    backgroundColor: "white",
-
-                    top: 0,
-                    minWidth: "150px",
-                    maxWidth: "150px",
-                    width: "150px",
-                    whiteSpace: "normal",
-                    wordBreak: "break-word",
-                    zIndex: 1,
-                  }}
-                >
-                  <Typography
-                    sx={{ fontSize: "0.75rem", whiteSpace: "normal" }}
-                  >
-                    When Are You Looking to Implement Sales Training?
+                    What makes now the right time to fix this?
                   </Typography>
                 </TableCell>
 
@@ -346,7 +345,33 @@ const Members = () => {
                       width: "90px",
                     }}
                   >
-                    Preferred Mode of Contact
+                    Investment Range
+                  </Typography>
+                </TableCell>
+
+                <TableCell
+                  align="left"
+                  sx={{
+                    position: "sticky",
+                    backgroundColor: "white",
+
+                    top: 0,
+                    minWidth: "90px",
+                    maxWidth: "90px",
+                    width: "90px",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    zIndex: 1,
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "0.75rem",
+                      whiteSpace: "normal",
+                      width: "90px",
+                    }}
+                  >
+                    Ideal start time
                   </Typography>
                 </TableCell>
 
@@ -547,6 +572,20 @@ const Members = () => {
                         width: "100px",
                       }}
                     >
+                      {row.insta}
+                    </Typography>
+                  </TableCell>
+
+                  <TableCell align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "100px",
+                      }}
+                    >
                       {row.companyName}
                     </Typography>
                   </TableCell>
@@ -565,7 +604,7 @@ const Members = () => {
                     </Typography>
                   </TableCell>
 
-                  <TableCell sx={{ ...cellStyle, maxWidth: 260 }} align="left">
+                  <TableCell align="left">
                     <Typography
                       sx={{
                         ...cellStyle,
@@ -575,7 +614,7 @@ const Members = () => {
                         width: "100px",
                       }}
                     >
-                      {row.teamMembers}
+                      {row.role}
                     </Typography>
                   </TableCell>
 
@@ -586,13 +625,29 @@ const Members = () => {
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                         textOverflow: "ellipsis",
-                        width: "120px",
+                        width: "100px",
+                      }}
+                    >
+                      {row.teamSize}
+                    </Typography>
+                  </TableCell>
+
+                  {/* Refactored Cell: Displays the 'goal' key */}
+                  <TableCell align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "100px",
                       }}
                     >
                       {row.goal}
                     </Typography>
                   </TableCell>
 
+                  {/* Refactored Cell: Displays the 'challenge' key */}
                   <TableCell align="left">
                     <Typography
                       sx={{
@@ -603,10 +658,11 @@ const Members = () => {
                         width: "150px",
                       }}
                     >
-                      {row.challenges}
+                      {row.challenge}
                     </Typography>
                   </TableCell>
 
+                  {/* Refactored Cell: Displays the 'urgency' key */}
                   <TableCell align="left">
                     <Typography
                       sx={{
@@ -617,7 +673,22 @@ const Members = () => {
                         width: "120px",
                       }}
                     >
-                      {row.directInvest}
+                      {row.urgency}
+                    </Typography>
+                  </TableCell>
+
+                  {/* Refactored Cell: Displays the 'investment' key */}
+                  <TableCell align="left">
+                    <Typography
+                      sx={{
+                        ...cellStyle,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "120px",
+                      }}
+                    >
+                      {row.investment}
                     </Typography>
                   </TableCell>
 
@@ -635,19 +706,7 @@ const Members = () => {
                     </Typography>
                   </TableCell>
 
-                  <TableCell align="left">
-                    <Typography
-                      sx={{
-                        ...cellStyle,
-                        overflow: "hidden",
-                        whiteSpace: "nowrap",
-                        textOverflow: "ellipsis",
-                        width: "80px",
-                      }}
-                    >
-                      {row.contactMode}
-                    </Typography>
-                  </TableCell>
+  
 
                   <TableCell align="left">
                     <Typography
