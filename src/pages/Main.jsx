@@ -54,7 +54,7 @@ const Main = () => {
                     fontFamily: "Inter",
                     fontOpticalSizing: "auto",
                     fontStyle: "normal",
-                    fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                    fontSize: { xs: "1.3rem", sm: "1.8rem" },
                     display: "block",
                     maxWidth: "600px",
                   }}
@@ -74,7 +74,7 @@ const Main = () => {
                         fontFamily: "Inter",
                         fontOpticalSizing: "auto",
                         fontStyle: "normal",
-                        fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                        fontSize: { xs: "1.3rem", sm: "1.8rem" },
                         padding: "0.2rem",
                         display: "inline-block",
                       }}
@@ -83,38 +83,45 @@ const Main = () => {
                     </Typography>
                   </Box>
                   <Typography
-                    component={"strong"}
                     sx={{
                       fontFamily: "Inter",
                       fontOpticalSizing: "auto",
                       fontStyle: "normal",
-                      fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                      fontSize: { xs: "1.3rem", sm: "1.8rem" },
                       fontWeight: "600",
                       textAlign: "center",
-                      padding: "0.2rem ",
-                      backgroundColor: "rgb(255, 242, 74)",
-                      padding: "0 0.2rem",
+                      whiteSpace: "nowrap",
+                      fontStyle: "italic",
                       whiteSpace: "nowrap",
                       wordBreak: "keep-all",
                     }}
                   >
-                    Double Their Sales
-                  </Typography>{" "}
+                    <Typography
+                      component={"strong"}
+                      sx={{
+                        fontFamily: "Inter",
+                        fontOpticalSizing: "auto",
+                        fontStyle: "normal",
+                        fontSize: { xs: "1.3rem", sm: "1.8rem" },
+                        fontWeight: "600",
+                        textAlign: "center",
+                        backgroundColor: "rgb(255, 242, 74)",
+                        padding: "0 0.2rem",
+                      }}
+                    >
+                      Double Their Sales
+                    </Typography>{" "}
+                    Without
+                  </Typography>
                   <Typography
                     sx={{
                       fontFamily: "Inter",
                       fontOpticalSizing: "auto",
                       fontStyle: "normal",
-                      fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                      fontSize: { xs: "1.3rem", sm: "1.8rem" },
                       textAlign: "center",
-                      whiteSpace: "nowrap",
-                      wordBreak: "keep-all",
                     }}
                   >
-                    <strong style={{ fontWeight: "800", fontStyle: "italic" }}>
-                      {" "}
-                      Without{" "}
-                    </strong>
                     Pushy Tactics
                   </Typography>{" "}
                 </Typography>
@@ -130,7 +137,7 @@ const Main = () => {
                       fontFamily: "Inter",
                       fontOpticalSizing: "auto",
                       fontStyle: "normal",
-                      fontSize: "1.1rem",
+                      fontSize: {xs:"1rem", sm:"1.2rem"},
                       cursor: "pointer",
                       textAlign: "center",
                       mt: "2rem",
