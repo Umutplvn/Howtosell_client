@@ -1,6 +1,5 @@
 import { Box, Link } from '@mui/material';
-import React, { useState, useRef } from 'react';
-
+import React, { useState, useRef, useEffect } from 'react';
 
 // CLIENT LOGOS
 import BluHvn from '../assets/logos/bluhvned.png';
@@ -32,6 +31,42 @@ const ClientLogos = () => {
   const scrollRef = useRef(null);
   const logosToDisplay = [...clientData, ...clientData]; 
 
+  useEffect(() => {
+    let animationFrameId;
+    let lastTime = 0;
+    const scrollSpeed = 0.08;
+
+    const animateScroll = (timestamp) => {
+      if (!scrollRef.current || isHovered) {
+        return;
+      }
+
+      const deltaTime = timestamp - lastTime;
+      lastTime = timestamp;
+
+      const currentScrollLeft = scrollRef.current.scrollLeft;
+      const newScrollLeft = currentScrollLeft + (scrollSpeed * deltaTime);
+
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft = newScrollLeft;
+
+        const scrollWidth = scrollRef.current.scrollWidth / 2;
+        if (newScrollLeft >= scrollWidth) {
+          scrollRef.current.scrollLeft = 0;
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animateScroll);
+    };
+
+    if (!isHovered) {
+      lastTime = performance.now();
+      animationFrameId = requestAnimationFrame(animateScroll);
+    }
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isHovered]);
+
   return (
     <Box
       onMouseEnter={() => setIsHovered(true)}
@@ -43,7 +78,6 @@ const ClientLogos = () => {
         overflow: 'hidden',
       }}
     >
-
       <Box
         ref={scrollRef}
         sx={{
@@ -52,16 +86,9 @@ const ClientLogos = () => {
           alignItems: 'center',
           gap: '2.5rem',
           whiteSpace: 'nowrap',
+          overflowX: 'scroll',
           "&::-webkit-scrollbar": {
             display: "none",
-          },
-          '@keyframes scroll': {
-            '0%': { transform: 'translateX(0)' },
-            '100%': { transform: 'translateX(-50%)' }, 
-          },
-          animation: 'scroll 30s linear infinite', 
-          '&:hover': {
-            animationPlayState: 'paused',
           },
         }}
       >
