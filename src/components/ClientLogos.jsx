@@ -76,7 +76,7 @@ const ClientLogos = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        marginTop: '3rem',
+        marginTop: '7rem',
         overflow: 'hidden',
       }}
     >
